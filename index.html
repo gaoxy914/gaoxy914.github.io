@@ -147,6 +147,138 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/28/manacher/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiangyu Gao">
+      <meta itemprop="description" content="To Record">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaoHei Growing Up">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/28/manacher/" class="post-title-link" itemprop="url">Manacher Algorithm</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-06-28 09:16:52 / Modified: 09:21:50" itemprop="dateCreated datePublished" datetime="2020-06-28T09:16:52+08:00">2020-06-28</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>calculate the longest palindrome substring</p>
+<ul>
+<li>preprocessing<br><br>insert ‘#’ between adjacent characters in the string, e.g.,<br>babad $\rightarrow$ #b#a#b#a#d#<br></li>
+</ul>
+<p><strong>remark</strong>: after preprocessing, the length of the string after<br>and the length of the palindrome substring is odd.</p>
+<ul>
+<li>array $P$<br><br>$P[i]$ : The maximum extension length of the palindrome substring centered on the i-th character.<br></li>
+</ul>
+<p><strong>remark</strong>: $P[i]$ is the length of the palindrome substring centered on the i-th caracter of the original string.<br><br>For example: abbabb</p>
+<table>
+<thead>
+<tr>
+<th>char</th>
+<th>#</th>
+<th>a</th>
+<th>#</th>
+<th>b</th>
+<th>#</th>
+<th>b</th>
+<th>#</th>
+<th>a</th>
+<th>#</th>
+<th>b</th>
+<th>#</th>
+<th>b</th>
+<th>#</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>index</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+<td>7</td>
+<td>8</td>
+<td>9</td>
+<td>10</td>
+<td>11</td>
+<td>12</td>
+</tr>
+<tr>
+<td>$P$</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>4</td>
+<td>1</td>
+<td>0</td>
+<td>5</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<ul>
+<li>calculate $P$ with previous information.<br><br>maxRight: $maxRight = \max{x + P[x] \mid 0 \le x &lt; i}$.<br><br>center: $center = \arg\max{x + P[x]\mid 0\le x&lt;i}$.<ul>
+<li>case 1 $i &gt; maxRight$<br><br>extend at the i-th character to enlarge maxRight.</li>
+<li>case 2 $i &lt; maxRight$<br><br>$(mirror + i) / 2 = center$<ul>
+<li>$P[mirror] &lt; maxRight - i$, which means that $P[i] = P[mirror]$.<br><br><img src="https://github.com/gaoxy914/LeetCode/blob/master/images/manacher1.jpg" alt="avatar"></li>
+<li>$P[mirror] == maxRight - i$, which means that $P[i]$ is at least $maxRight - i$ and may be extended.<br><br><img src="https://github.com/gaoxy914/Leetcode/blob/master/images/manacher2.jpg" alt="avatar"></li>
+<li>$P[mirror] &gt; maxRight - i$, which means that $P[i] = maxRight - i$ and can not be extended.<br><br><img src="https://github.com/gaoxy914/Leetcode/blob/master/images/manacher3.jpg" alt="avatar"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>In summary, $P[i] = \min{maxRight - i, P[mirror]}$</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/28/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -279,7 +411,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

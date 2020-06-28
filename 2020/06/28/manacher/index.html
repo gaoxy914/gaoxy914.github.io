@@ -20,17 +20,23 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="To Record">
-<meta property="og:type" content="website">
-<meta property="og:title" content="XiaoHei Growing Up">
-<meta property="og:url" content="http://yoursite.com/archives/2020/index.html">
+  <meta name="description" content="calculate the longest palindrome substring  preprocessinginsert ‘#’ between adjacent characters in the string, e.g.,babad $\rightarrow$ #b#a#b#a#d#  remark: after preprocessing, the length of the stri">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Manacher Algorithm">
+<meta property="og:url" content="http://yoursite.com/2020/06/28/manacher/index.html">
 <meta property="og:site_name" content="XiaoHei Growing Up">
-<meta property="og:description" content="To Record">
+<meta property="og:description" content="calculate the longest palindrome substring  preprocessinginsert ‘#’ between adjacent characters in the string, e.g.,babad $\rightarrow$ #b#a#b#a#d#  remark: after preprocessing, the length of the stri">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github.com/gaoxy914/LeetCode/blob/master/images/manacher1.jpg">
+<meta property="og:image" content="https://github.com/gaoxy914/Leetcode/blob/master/images/manacher2.jpg">
+<meta property="og:image" content="https://github.com/gaoxy914/Leetcode/blob/master/images/manacher3.jpg">
+<meta property="article:published_time" content="2020-06-28T01:16:52.000Z">
+<meta property="article:modified_time" content="2020-06-28T01:21:50.584Z">
 <meta property="article:author" content="Xiangyu Gao">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/gaoxy914/LeetCode/blob/master/images/manacher1.jpg">
 
-<link rel="canonical" href="http://yoursite.com/archives/2020/">
+<link rel="canonical" href="http://yoursite.com/2020/06/28/manacher/">
 
 
 <script id="page-configurations">
@@ -38,12 +44,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Archive | XiaoHei Growing Up</title>
+  <title>Manacher Algorithm | XiaoHei Growing Up</title>
   
 
 
@@ -141,70 +147,150 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">Um..! 2 posts in total. Keep on posting.</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/28/manacher/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiangyu Gao">
+      <meta itemprop="description" content="To Record">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaoHei Growing Up">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Manacher Algorithm
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-06-28 09:16:52 / Modified: 09:21:50" itemprop="dateCreated datePublished" datetime="2020-06-28T09:16:52+08:00">2020-06-28</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+        <p>calculate the longest palindrome substring</p>
+<ul>
+<li>preprocessing<br><br>insert ‘#’ between adjacent characters in the string, e.g.,<br>babad $\rightarrow$ #b#a#b#a#d#<br></li>
+</ul>
+<p><strong>remark</strong>: after preprocessing, the length of the string after<br>and the length of the palindrome substring is odd.</p>
+<ul>
+<li>array $P$<br><br>$P[i]$ : The maximum extension length of the palindrome substring centered on the i-th character.<br></li>
+</ul>
+<p><strong>remark</strong>: $P[i]$ is the length of the palindrome substring centered on the i-th caracter of the original string.<br><br>For example: abbabb</p>
+<table>
+<thead>
+<tr>
+<th>char</th>
+<th>#</th>
+<th>a</th>
+<th>#</th>
+<th>b</th>
+<th>#</th>
+<th>b</th>
+<th>#</th>
+<th>a</th>
+<th>#</th>
+<th>b</th>
+<th>#</th>
+<th>b</th>
+<th>#</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>index</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+<td>7</td>
+<td>8</td>
+<td>9</td>
+<td>10</td>
+<td>11</td>
+<td>12</td>
+</tr>
+<tr>
+<td>$P$</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>4</td>
+<td>1</td>
+<td>0</td>
+<td>5</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<ul>
+<li>calculate $P$ with previous information.<br><br>maxRight: $maxRight = \max{x + P[x] \mid 0 \le x &lt; i}$.<br><br>center: $center = \arg\max{x + P[x]\mid 0\le x&lt;i}$.<ul>
+<li>case 1 $i &gt; maxRight$<br><br>extend at the i-th character to enlarge maxRight.</li>
+<li>case 2 $i &lt; maxRight$<br><br>$(mirror + i) / 2 = center$<ul>
+<li>$P[mirror] &lt; maxRight - i$, which means that $P[i] = P[mirror]$.<br><br><img src="https://github.com/gaoxy914/LeetCode/blob/master/images/manacher1.jpg" alt="avatar"></li>
+<li>$P[mirror] == maxRight - i$, which means that $P[i]$ is at least $maxRight - i$ and may be extended.<br><br><img src="https://github.com/gaoxy914/Leetcode/blob/master/images/manacher2.jpg" alt="avatar"></li>
+<li>$P[mirror] &gt; maxRight - i$, which means that $P[i] = maxRight - i$ and can not be extended.<br><br><img src="https://github.com/gaoxy914/Leetcode/blob/master/images/manacher3.jpg" alt="avatar"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>In summary, $P[i] = \min{maxRight - i, P[mirror]}$</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-06-28T09:16:52+08:00"
-              content="2020-06-28">
-          06-28
-        </time>
-      </div>
+      <footer class="post-footer">
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/06/28/manacher/" itemprop="url">
-            <span itemprop="name">Manacher Algorithm</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-06-28T08:06:28+08:00"
-              content="2020-06-28">
-          06-28
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/06/28/hello-world/" itemprop="url">
-            <span itemprop="name">Hello World</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
+        
 
 
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/06/28/hello-world/" rel="prev" title="Hello World">
+      <i class="fa fa-chevron-left"></i> Hello World
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-  </div>
+      </footer>
+    
+  </article>
   
   
-  
-
   
 
 
