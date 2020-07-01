@@ -12,7 +12,7 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open Sans:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
@@ -20,18 +20,18 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="To calculate the longest palindrome substring.  preprocessing insert ‘#’ between adjacent characters in the string, e.g., babad $\rightarrow$ #b#a#b#a#d# remark: after preprocessing, the length of the">
+  <meta name="description" content="To calculate the longest palindrome substring. Algorithm preprocessinginsert ‘#’ between adjacent characters in the string, e.g., babad $\rightarrow$ #b#a#b#a#d#remark: after preprocessing, the length">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Manacher Algorithm">
 <meta property="og:url" content="http://yoursite.com/2020/06/28/manacher/index.html">
 <meta property="og:site_name" content="Keep Working">
-<meta property="og:description" content="To calculate the longest palindrome substring.  preprocessing insert ‘#’ between adjacent characters in the string, e.g., babad $\rightarrow$ #b#a#b#a#d# remark: after preprocessing, the length of the">
+<meta property="og:description" content="To calculate the longest palindrome substring. Algorithm preprocessinginsert ‘#’ between adjacent characters in the string, e.g., babad $\rightarrow$ #b#a#b#a#d#remark: after preprocessing, the length">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/06/28/manacher/manacher1.jpg">
 <meta property="og:image" content="http://yoursite.com/2020/06/28/manacher/manacher2.jpg">
 <meta property="og:image" content="http://yoursite.com/2020/06/28/manacher/manacher3.jpg">
 <meta property="article:published_time" content="2020-06-28T01:16:52.000Z">
-<meta property="article:modified_time" content="2020-06-30T10:06:15.433Z">
+<meta property="article:modified_time" content="2020-07-01T13:11:41.587Z">
 <meta property="article:author" content="Xiangyu Gao">
 <meta property="article:tag" content="Algorithm">
 <meta property="article:tag" content="CPP">
@@ -201,7 +201,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-06-30 18:06:15" itemprop="dateModified" datetime="2020-06-30T18:06:15+08:00">2020-06-30</time>
+                <time title="Modified: 2020-07-01 21:11:41" itemprop="dateModified" datetime="2020-07-01T21:11:41+08:00">2020-07-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -225,95 +225,80 @@
 
       
         <p>To calculate the longest palindrome substring.</p>
-<ul>
-<li><p>preprocessing</p>
-<p>insert ‘#’ between adjacent characters in the string, e.g., babad $\rightarrow$ #b#a#b#a#d#</p>
-<p><strong>remark</strong>: after preprocessing, the length of the string after and the length of the palindrome substring is odd.</p>
-</li>
+<h4 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h4><ul>
+<li>preprocessing<br>insert ‘#’ between adjacent characters in the string, e.g., babad $\rightarrow$ #b#a#b#a#d#<br><br><strong>remark</strong>: after preprocessing, the length of the string after and the length of the palindrome substring is odd.</li>
 </ul>
 <a id="more"></a>
 <ul>
-<li><p>array $P$</p>
-<p>$P[i]$ : The maximum extension length of the palindrome substring centered on the i-th character.</p>
-<p><strong>remark</strong>: $P[i]$ is the length of the palindrome substring centered on the i-th caracter of the original string.</p>
-<p>For example: abbabb</p>
-</li>
+<li>array $P$<br><br>$P[i]$ : The maximum extension length of the palindrome substring centered on the i-th character.<br><br><strong>remark</strong>: $P[i]$ is the length of the palindrome substring centered on the i-th caracter of the original string.<br><br>For example: abbabb</li>
 </ul>
 <div class="table-container">
 <table>
 <thead>
 <tr>
-<th>char</th>
-<th>#</th>
-<th>a</th>
-<th>#</th>
-<th>b</th>
-<th>#</th>
-<th>b</th>
-<th>#</th>
-<th>a</th>
-<th>#</th>
-<th>b</th>
-<th>#</th>
-<th>b</th>
-<th>#</th>
+<th style="text-align:center">char</th>
+<th style="text-align:center">#</th>
+<th style="text-align:center">a</th>
+<th style="text-align:center">#</th>
+<th style="text-align:center">b</th>
+<th style="text-align:center">#</th>
+<th style="text-align:center">b</th>
+<th style="text-align:center">#</th>
+<th style="text-align:center">a</th>
+<th style="text-align:center">#</th>
+<th style="text-align:center">b</th>
+<th style="text-align:center">#</th>
+<th style="text-align:center">b</th>
+<th style="text-align:center">#</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>index</td>
-<td>0</td>
-<td>1</td>
-<td>2</td>
-<td>3</td>
-<td>4</td>
-<td>5</td>
-<td>6</td>
-<td>7</td>
-<td>8</td>
-<td>9</td>
-<td>10</td>
-<td>11</td>
-<td>12</td>
+<td style="text-align:center">index</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">7</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">9</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">11</td>
+<td style="text-align:center">12</td>
 </tr>
 <tr>
-<td>$P$</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-<td>4</td>
-<td>1</td>
-<td>0</td>
-<td>5</td>
-<td>0</td>
-<td>1</td>
-<td>2</td>
-<td>1</td>
-<td>0</td>
+<td style="text-align:center">$P$</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
 </tr>
 </tbody>
 </table>
 </div>
 <ul>
-<li><p>calculate $P$ with previous information.</p>
-<p>maxRight: $maxRight = \max\{x + P[x] \mid 0 \le x &lt; i\}$.</p>
-<p>center: $center = \arg\max\{x + P[x] \mid 0\le x&lt;i\}$.</p>
+<li><p>calculate $P$ with previous information.<br>maxRight: $maxRight = \max\{x + P[x] \mid 0 \le x &lt; i\}$.<br>center: $center = \arg\max\{x + P[x] \mid 0\le x&lt;i\}$.</p>
 <ul>
-<li><p>case 1 $i \ge maxRight$</p>
-<p>extend at the i-th character to enlarge maxRight.</p>
-</li>
-<li><p>case 2 $i &lt; maxRight$</p>
-<p>$(mirror + i) / 2 = center$</p>
+<li>case 1 $i \ge maxRight$<br>extend at the i-th character to enlarge maxRight.</li>
+<li><p>case 2 $i &lt; maxRight$<br>$(mirror + i) / 2 = center$</p>
 <ul>
-<li><p>$P[mirror] &lt; maxRight - i$, which means that $P[i] = P[mirror]$.</p>
-<p><img src="/2020/06/28/manacher/manacher1.jpg" alt="avatar"></p>
+<li><p>$P[mirror] &lt; maxRight - i$, which means that $P[i] = P[mirror]$.<br><img src="/2020/06/28/manacher/manacher1.jpg" alt="avatar"></p>
 </li>
-<li><p>$P[mirror] == maxRight - i$, which means that $P[i]$ is at least $maxRight - i$ and may be extended.</p>
-<p><img src="/2020/06/28/manacher/manacher2.jpg" alt="avatar"></p>
+<li><p>$P[mirror] == maxRight - i$, which means that $P[i]$ is at least $maxRight - i$ and may be extended.<br><img src="/2020/06/28/manacher/manacher2.jpg" alt="avatar"></p>
 </li>
-<li><p>$P[mirror] &gt; maxRight - i$, which means that $P[i] = maxRight - i$ and can not be extended.</p>
-<p><img src="/2020/06/28/manacher/manacher3.jpg" alt="avatar"></p>
+<li><p>$P[mirror] &gt; maxRight - i$, which means that $P[i] = maxRight - i$ and can not be extended.<br><img src="/2020/06/28/manacher/manacher3.jpg" alt="avatar"></p>
 </li>
 </ul>
 </li>
@@ -321,7 +306,7 @@
 </li>
 </ul>
 <p>In summary, $P[i] = \min\{maxRight - i, P[mirror]\}$</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">manacher</span><span class="params">(<span class="built_in">string</span> str)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">string</span> str_trans = <span class="string">"#"</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">char</span> c : str) &#123;</span><br><span class="line">        str_trans += c;</span><br><span class="line">        str_trans += <span class="string">'#'</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> n = str_trans.length();</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">p</span><span class="params">(n, <span class="number">0</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> maxRight = <span class="number">0</span>, center = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> maxLen = <span class="number">1</span>, start = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i &lt; maxRight) &#123;</span><br><span class="line">            <span class="keyword">int</span> mirror = <span class="number">2</span>*center - i;</span><br><span class="line">            p[i] = <span class="built_in">min</span>(maxRight - i, p[mirror]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> left = i - (<span class="number">1</span> + p[i]), right = i + (<span class="number">1</span> + p[i]);</span><br><span class="line">        <span class="keyword">while</span> (left &gt;= <span class="number">0</span> &amp;&amp; right &lt; n &amp;&amp; str_trans[left] == str_trans[right]) &#123;</span><br><span class="line">            p[i]++;</span><br><span class="line">            left--;</span><br><span class="line">            right++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (i + p[i] &gt; maxRight) &#123;</span><br><span class="line">            maxRight = i + p[i];</span><br><span class="line">            center = i;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (p[i] &gt; maxLen) &#123;</span><br><span class="line">            maxLen = p[i];</span><br><span class="line">            start = (i - maxLen) / <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> str.substr(start, maxLen);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">manacher</span><span class="params">(<span class="built_in">string</span> str)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">string</span> str_trans = <span class="string">"#"</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">char</span> c : str) &#123;</span><br><span class="line">        str_trans += c;</span><br><span class="line">        str_trans += <span class="string">'#'</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> n = str_trans.length();</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">p</span><span class="params">(n, <span class="number">0</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> maxRight = <span class="number">0</span>, center = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> maxLen = <span class="number">1</span>, start = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i &lt; maxRight) &#123;</span><br><span class="line">            <span class="keyword">int</span> mirror = <span class="number">2</span>*center - i;</span><br><span class="line">            p[i] = <span class="built_in">min</span>(maxRight - i, p[mirror]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> left = i - (<span class="number">1</span> + p[i]), right = i + (<span class="number">1</span> + p[i]);</span><br><span class="line">        <span class="keyword">while</span> (left &gt;= <span class="number">0</span> &amp;&amp; right &lt; n &amp;&amp; str_trans[left] == str_trans[right]) &#123;</span><br><span class="line">            p[i]++;</span><br><span class="line">            left--;</span><br><span class="line">            right++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (i + p[i] &gt; maxRight) &#123;</span><br><span class="line">            maxRight = i + p[i];</span><br><span class="line">            center = i;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (p[i] &gt; maxLen) &#123;</span><br><span class="line">            maxLen = p[i];</span><br><span class="line">            start = (i - maxLen) / <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> str.substr(start, maxLen);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -403,6 +388,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Algorithm"><span class="nav-number">1.</span> <span class="nav-text">Algorithm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Code"><span class="nav-number">2.</span> <span class="nav-text">Code</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -418,7 +404,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
