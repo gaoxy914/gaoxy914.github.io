@@ -28,7 +28,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/07/01/databasefoundation-2-2/cover.png">
 <meta property="og:image" content="http://yoursite.com/2020/07/01/databasefoundation-2-2/reductions.png">
 <meta property="article:published_time" content="2020-07-01T06:11:56.000Z">
-<meta property="article:modified_time" content="2020-07-01T12:36:40.026Z">
+<meta property="article:modified_time" content="2020-07-02T01:36:48.381Z">
 <meta property="article:author" content="Xiangyu Gao">
 <meta property="article:tag" content="Database Theory">
 <meta property="article:tag" content="Daily Reading">
@@ -190,10 +190,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-07-01 14:11:56 / Modified: 20:36:40" itemprop="dateCreated datePublished" datetime="2020-07-01T14:11:56+08:00">2020-07-01</time>
+              <time title="Created: 2020-07-01 14:11:56" itemprop="dateCreated datePublished" datetime="2020-07-01T14:11:56+08:00">2020-07-01</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-02 09:36:48" itemprop="dateModified" datetime="2020-07-02T09:36:48+08:00">2020-07-02</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -219,7 +225,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <div style="width:50%;margin:auto"><img src="/2020/07/01/databasefoundation-2-2/cover.png" class title="cover"></div>
+        <div style="width:25%;margin:auto"><img src="/2020/07/01/databasefoundation-2-2/cover.png" class title="cover"></div>
 
 <a id="more"></a>
 <p><strong><em>alphabet</em></strong> $\Sigma$,<br><strong><em>word</em></strong> over $\Sigma$ is $w = a_1,\cdots,a_n$, where $a_i \in \Sigma$,<br><strong><em>length</em></strong> $|w| = n$,<br><strong><em>concatenation</em></strong> (级联) of $u$, $v$ denoted $uv$, concatenation with itself $u^n$,<br>$\Sigma^*$ all words over $\Sigma$,<br><strong><em>language</em></strong> is a subset of $\Sigma^*$.</p>
@@ -231,7 +237,21 @@
 <li>$F$ <em>accepting</em> states.</li>
 </ul>
 <p>The fsa is only <strong>ALLOWED TO MOVE RIGHT</strong>.<br>A language accepted by some fsa is called a <strong><em>regular language</em></strong>.</p>
-<p>Pumping Lemma</p>
+<table>
+<tr>
+<td bgcolor="#CAE1FF">
+<b>Lemma</b>(Pumping Lemma)
+For any regular language $L$, there exists an integer $n$ such that for all $x \in L$ with $|x| \ge n$, there exists $u, v, w \in \Sigma^\star$ such that $x = uvw$, and
+<ol>
+<li> $|uv| \le n$, </li>
+<li> $|v| \ge 1$, </li>
+<li> for all $i \ge 0 : uv^iw \in L$. </li>
+</ol>
+</td>
+</tr>
+</table>
+
+<p>For example, Let us prove $L = \{0^n1^n \mid n \ge 0\}$ is irregular using Pumping Lemma.<br><br>Assume that $L$ is regular, then by Pumping Lemma the above given rules follow.<br><br>Now let $x \in L$ and $|x| \ge n$. So by Pumping Lemma, there exists $u, v, w$ such that $x = 0^n1^n = uvw$ with $|uv| \le n$ and $|v| \ge 1$.<br>So $u = 0^a, v = 0^b, w = 0^c1^n$ where $a + b \le n, b \ge 1, c \ge 0, a + b + c = n$.<br><br>Then if $i = 0$, $uv^0w = uw = 0^a0^c1^n = 0^{a+c}1^n \notin L$, since $a + c \ne n$.</p>
 <p>A regular expression over $\Sigma$ is wrriten using the symbols in $\Sigma$ and the operations concatenation, * and +.<br><br>A language $L$ is regular iff it can be specified by a regular expression.<br><br>Nondeterministic fsa (nfsa) accept the same set of language as fsa. However, the number of states in the equivalent deterministic fsa may be exponential in the number of states of the nondeterministic one.</p>
 <h3 id="Turing-Machines-and-Computability"><a href="#Turing-Machines-and-Computability" class="headerlink" title="Turing Machines and Computability"></a>Turing Machines and Computability</h3><p>A language is <strong><em>recursively enumerable</em></strong> (r.e.) iff it is $L(M)$ for some TM $M$. It means that there is an algorithm that is guaranteed to say eventually yes on input $w$ if $w \in L$ but may run forever if $w \notin L$ (if it stops, it says no).<br><br>$L$ is recursive means that there is an algorithm that always decides in finite time whether a given word is in $L$. If $L = L(M)$ and $M$ always halts, $L$ is <strong><em>recursive</em></strong>. A language whose complement is r.e. is called <strong><em>co-r.e.</em></strong>.<br>Some facts:</p>
 <ol>
@@ -240,7 +260,10 @@
 <li>$L$ is r.e. iff it is the range of a computable function.</li>
 <li>$L$ is recursive iff it is the range of a computable nondecreasing $(|f(w)| \ge |w|)$ function.</li>
 </ol>
-<p>TIME($Ploy$) PTIME, SPACE($Poly$) PSPACE.<br><strong>Membership in the class PTIME is often regarded as synonymous to tractability.</strong><br><br>The set of recursive languages accepted by some NTM using time bounded by a polynomial is NP, space bounded by a polynomial is NPSPACE.<br><strong>Savitch’s theorem</strong> states that <u>PSPACE = NPSPACE</u><br>$L$ is reducible to $K$ if there is a computable mapping $f$ such that for each $w, w \in L$ iff $f(w) \in K$.<br>The complexity of the reduction function is lower than that for a class.<br>A recursive language is complete in $C$ by $C’$ reductions if for each $L \in C$ there is a function $f$ in $C’$ reducing $L$ to $K$.<br><img src="/2020/07/01/databasefoundation-2-2/reductions.png" alt="avator"><br>NP-COMPLETE problem: 3-SAT<br>PSPACE-COMPLETE problem: QBF<br>PTIME-COMPLETE problem: CFG emptiness</p>
+<p>TIME($Ploy$) PTIME, SPACE($Poly$) PSPACE.<br><br><strong>Membership in the class PTIME is often regarded as synonymous to tractability.</strong><br><br>The set of recursive languages accepted by some NTM using time bounded by a polynomial is NP, space bounded by a polynomial is NPSPACE.<br><strong>Savitch’s theorem</strong> states that <u>PSPACE = NPSPACE</u><br>$L$ is reducible to $K$ if there is a computable mapping $f$ such that for each $w, w \in L$ iff $f(w) \in K$.<br>The complexity of the reduction function is lower than that for a class.<br>A recursive language is complete in $C$ by $C’$ reductions if for each $L \in C$ there is a function $f$ in $C’$ reducing $L$ to $K$.</p>
+<div style="width:50%;margin:auto"><img src="/2020/07/01/databasefoundation-2-2/reductions.png" class title="usual reductions in some complexity classes."></div>
+
+<p>NP-COMPLETE problem: 3-SAT<br>PSPACE-COMPLETE problem: QBF<br>PTIME-COMPLETE problem: CFG emptiness</p>
 <h3 id="Context-Free-Grammars"><a href="#Context-Free-Grammars" class="headerlink" title="Context-Free Grammars"></a>Context-Free Grammars</h3><p>A CFG is a 4-tuple $\langle N, \Sigma, S, P\rangle$, where:</p>
 <ul>
 <li>$N$ a finite set of <em>nonterminal symbols</em>;</li>
@@ -248,7 +271,30 @@
 <li>$S$ a distinguished symbol of $N$, <em>start symbol</em>;</li>
 <li>$P$ a finite set of <em>productions</em> of the form $\xi \to w$, where $\xi \in N$ and $w \in (N \cup \Sigma)^*$.</li>
 </ul>
-<p>The language accepted by $G$: $L(G) = \{w \mid w \in \Sigma^*, S \Rightarrow^*\text{(transitive closure of)} \Rightarrow w\}.$</p>
+<p>The language accepted by $G$: $L(G) = \{w \mid w \in \Sigma^*, S \Rightarrow^*(\text{transitive closure of} \Rightarrow) w\}.$</p>
+<table>
+<tr>
+<td bgcolor="#CAE1FF">
+The specification power of CFGs lies between that of fsa's and that of TMs.
+All regular languages are context-free and all context-free languages are recursive.
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td bgcolor="#CAE1FF">
+<b>Lemma</b>(Pumping Lemma)
+For any $L$ in CFL, there exists an integer $n$ such that for all $x \in L$ with $|x| \ge n$, there exists $u, v, w, x, y \in \Sigma^\star$ such that $x = uvwxy$ and
+<ol>
+<li> $|vwx| \le n$, </li>
+<li> $|vx| \ge 1$, </li>
+<li> for all $i \ge 0 : uv^iwx^iy \in L$. </li>
+</ol>
+</td>
+</tr>
+</table>
+
 <p>Some questions about CFGs:<br>Decidable: emptiness [is $L(G)$ empty] finiteness [if $L(G)$ finite]<br><br>Undecidable: containment [is it true that $L(G_1) \subseteq L(G_2)$] equality [is it true that $L(G_1) = L(G_2)$]</p>
 
     </div>

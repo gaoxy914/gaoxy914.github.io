@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/07/01/databasefoundation-2/cover.png">
 <meta property="article:published_time" content="2020-07-01T00:06:34.000Z">
-<meta property="article:modified_time" content="2020-07-01T12:36:19.646Z">
+<meta property="article:modified_time" content="2020-07-02T01:15:36.590Z">
 <meta property="article:author" content="Xiangyu Gao">
 <meta property="article:tag" content="Database Theory">
 <meta property="article:tag" content="Daily Reading">
@@ -189,10 +189,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-07-01 08:06:34 / Modified: 20:36:19" itemprop="dateCreated datePublished" datetime="2020-07-01T08:06:34+08:00">2020-07-01</time>
+              <time title="Created: 2020-07-01 08:06:34" itemprop="dateCreated datePublished" datetime="2020-07-01T08:06:34+08:00">2020-07-01</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-02 09:15:36" itemprop="dateModified" datetime="2020-07-02T09:15:36+08:00">2020-07-02</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -218,12 +224,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <div style="width:50%;margin:auto"><img src="/2020/07/01/databasefoundation-2/cover.png" class title="cover"></div>
+        <div style="width:25%;margin:auto"><img src="/2020/07/01/databasefoundation-2/cover.png" class title="cover"></div>
 
 <a id="more"></a>
-<h2 id="Theoretical-Background"><a href="#Theoretical-Background" class="headerlink" title="Theoretical Background"></a>Theoretical Background</h2><h3 id="Binary-Relation"><a href="#Binary-Relation" class="headerlink" title="Binary Relation"></a>Binary Relation</h3><p>A <strong><em>binary relation</em></strong> (二元关系) over a (finite or infinite) set $S$ is a subset $R$ of $S \times S$,<br>the crossproduct of $S$ with itself. $R(x, y)$, $xRy$ denite $(x, y) \in R$.</p>
-<p>$n$-ary relation $S^n$.</p>
-<p>A binary relation is <strong><em>reflexive</em></strong> (自反) if $(x, y) \in R$ for each $x \in S$;<br><br>A binary relation is <strong><em>symmetric</em></strong> (对称) if $(x, y) \in R$ implies that $(y, x) \in R$ for each $x, y \in S$;<br><br>A binary relation is <strong><em>transitive</em></strong> (传递) if $(x, y) \in R$ and $(y, z) \in R$ implies that<br>$(x, z) \in R$ for each $x, y, z \in S$.</p>
+<h3 id="Theoretical-Background"><a href="#Theoretical-Background" class="headerlink" title="Theoretical Background"></a>Theoretical Background</h3><h4 id="Binary-Relation"><a href="#Binary-Relation" class="headerlink" title="Binary Relation"></a>Binary Relation</h4><p>A <strong><em>binary relation</em></strong> (二元关系) over a (finite or infinite) set $S$ is a subset $R$ of $S \times S$,<br>the crossproduct of $S$ with itself. $R(x, y)$, $xRy$ denite $(x, y) \in R$.<br><br>$n$-ary relation $S^n$.<br><br>A binary relation is <strong><em>reflexive</em></strong> (自反) if $(x, y) \in R$ for each $x \in S$;<br><br>A binary relation is <strong><em>symmetric</em></strong> (对称) if $(x, y) \in R$ implies that $(y, x) \in R$ for each $x, y \in S$;<br><br>A binary relation is <strong><em>transitive</em></strong> (传递) if $(x, y) \in R$ and $(y, z) \in R$ implies that<br>$(x, z) \in R$ for each $x, y, z \in S$.</p>
 <p>A reflexive, symmetric, and transitive binary relation is an <strong><em>equivalence relation</em></strong>.<br>For each $x \in S$ the <strong><em>equivalence class</em></strong> $[x]_R = \{y \in S \mid (x, y) \in R\}$.</p>
 <p>A <strong><em>partition</em></strong> of a nonempty set $S$ is a family of sets $\{S_i \mid i \in I\}$ such that:</p>
 <ol>
@@ -232,13 +236,21 @@
 <li>$S_i \ne \phi$ for $i \in I$.</li>
 </ol>
 <p>If $R$ is an equivalence relation on $S$, the family of equivalence classes over $R$ is a partition of $S$.<br><br>$E$ and $E’$ are equivalence relations on a nonempty set $S$, $E$ is a refinement of $E’$ if $E \subseteq E’$, i.e., for each $x \in S$, $[x]_E \subseteq [x]_{E’}$.<br> Each equivalence class of $E’$ is a disjoint union of one or more equivalence classes of $E$.</p>
-<p>A <strong><em>partial order</em></strong> (偏序关系) of $S$ is a binary relation $R$ over $S$ that is reflexive, antisymmetric, and transitive.<br><br>A <strong><em>total order</em></strong> (全序关系) is a partial order $R$ over $S$ such that for each $x, y \in S$, either $(x, y) \in R$ or $(y, x) \in R$.<br><br>If $(S, R)$ is a partially order set, then a <strong><em>topological sort</em></strong> (拓扑序) of $S$ (relative to $R$) is a binary relation $R’$ on $S$ that is a <u>total order</u> such that $R’ \supseteq R$. (由某个集合上的偏序得到该集合上的一个全序，这个操作称之为拓扑排序)</p>
+<p>A <strong><em>partial order</em></strong> (偏序关系) of $S$ is a binary relation $R$ over $S$ that is reflexive, antisymmetric, and transitive.<br><br>A <strong><em>total order</em></strong> (全序关系) is a partial order $R$ over $S$ such that for each $x, y \in S$, either $(x, y) \in R$ or $(y, x) \in R$.<br><br>If $(S, R)$ is a partially order set, then a <strong><em>topological sort</em></strong> (拓扑序) of $S$ (relative to $R$) is a binary relation $R’$ on $S$ that is a total order such that $R’ \supseteq R$. (由某个集合上的偏序得到该集合上的一个全序，这个操作称之为拓扑排序)</p>
 <p>$R$: a binary relation over $S$, $\mathbf{P}$: a set of properties of binary relations.<br>The $\mathbf{P}$-closure (闭包) of $R$ is the smallest binary relation $R’ \supseteq R$ and $R’$ satisfies all of the properties in $\mathbf{P}$.</p>
-<h3 id="Graph"><a href="#Graph" class="headerlink" title="Graph"></a>Graph</h3><p>A <strong><em>(directed) graph</em></strong> is a pair $G = (V, E)$, where $V$ is a finite set of <strong><em>vertexes</em></strong> and $E \subseteq V \times V$.<br><br>A <strong><em>directed path$ in $G$ is a nonempty sequence $p = (v_0, \cdots, v_n)$ of vertexes such that<br>$(v_i, v_{i+1}) \in E$. An </em></strong>undirected path<strong><em> in $G$ is a nonempty sequence $p = (v_0, \cdots, v_n)$<br>of vertexes such that $(v_i, v_{i+1}) \in E$ or $(v_{i+1}, v_i) \in E$. The path is called proper if<br>$v_i \ne v_j$ for $i \ne j$.<br><br>A </em></strong>(directed or undirected) cycle<em>*</em> is a (directed or undirected) path $v_0, \cdots, v_n$ such that<br>$v_n = v_0$. A cycle is proper if $v_0, \cdots, v_{n-1}$ is a proper path.</p>
-<p>Two vertexes $u, v$ are <strong><em>connected</em></strong> if there is an undirected path in $G$ from $u$ to $v$,<br>and they are <strong><em>strongly connected</em></strong> if there are directed paths from $u$ to $v$ and from $v$ to $u$.<br>Connectedness and strong connectedness are equivalence relations on $V$. A <strong><em>(strongly) connected component</em></strong><br>of $G$ is an equivalence class of $V$ under (strong) connectedness. A graph is (strongly) connected if it has<br>exactly one (strongly) connected component.<br><br>The <strong><em>distance</em></strong> $d(a, b)$ of $a, b$ is the length of the shortest path connecting $a$ to $b$.<br>The <strong><em>diameter</em></strong> (直径) of a graph $G$ is the maximum finite distance between two nodes in $G$.</p>
-<p>A <strong><em>tree</em></strong> is a graph that has exactly one vertex with no in-edges, called the <strong><em>root</em></strong>, and<br>no undirected cycles. A <strong><em>leaf</em></strong> of a tree is a vertex with no out edges. A <strong><em>forest</em></strong> is a graph<br>that consists of a set of trees.</p>
-<p>Let $G$ and $G’$ be two directed graphs. A function $h : V \to V’$ is a <strong><em>homomorphism</em></strong> (同态) from<br>$G$ to $G’$ if for each pair $u, v \in V$, $(u, v) \in E$ implies $(h(u), h(v)) \in E’$. The function<br>$h$ is an <strong><em>isomorphism</em></strong> (同构) from $G$ to $G’$ if $h$ is a one-one onto mapping from $V$ to $V’$.<br>$h$ is a homomorphism from $G$ to $G’$, and $h^{-1}$ is a homomorphism form $G’$ to $G$. An <strong><em>automorphism</em></strong><br>(自同构) on $G$ is an isomorphism form $G$ to $G$.</p>
-<h3 id="Permutation"><a href="#Permutation" class="headerlink" title="Permutation"></a>Permutation</h3><p>A <strong><em>permutation</em></strong> (置换) of $S$ is a one-one onto function $\rho : S \to S$.<br><br>A permutation $\rho’$ is <em>derived</em> from permutation $\rho$ by an <em>exchange</em> if the listing corresponding to<br>$\rho$ and $\rho’$ agree everywhere except at some positions $i$ and $i + 1$, where the values are exchanged.</p>
+<h4 id="Graph"><a href="#Graph" class="headerlink" title="Graph"></a>Graph</h4><p>A <strong><em>(directed) graph</em></strong> is a pair $G = (V, E)$, where $V$ is a finite set of <strong><em>vertexes</em></strong> and $E \subseteq V \times V$.<br><br>A <strong><em>directed path</em></strong> in $G$ is a nonempty sequence $p = (v_0, \cdots, v_n)$ of vertexes such that $(v_i, v_{i+1}) \in E$. An <strong><em>undirected path</em></strong> in $G$ is a nonempty sequence $p = (v_0, \cdots, v_n)$ of vertexes such that $(v_i, v_{i+1}) \in E$ or $(v_{i+1}, v_i) \in E$. The path is called proper if $v_i \ne v_j$ for $i \ne j$.<br><br>A <strong><em>(directed or undirected) cycle</em></strong> is a (directed or undirected) path $v_0, \cdots, v_n$ such that $v_n = v_0$. A cycle is proper if $v_0, \cdots, v_{n-1}$ is a proper path.<br><br>A graph $G = (V, E)$ is <strong><em>acyclic</em></strong> if it has no cycles or, equivalently, if the transitive closure of E is irreflexive.</p>
+<p>Two vertexes $u, v$ are <strong><em>connected</em></strong> if there is an undirected path in $G$ from $u$ to $v$, and they are <strong><em>strongly connected</em></strong> if there are directed paths from $u$ to $v$ and from $v$ to $u$.<br>Connectedness and strong connectedness are equivalence relations on $V$. A <strong><em>(strongly) connected component</em></strong> of $G$ is an equivalence class of $V$ under (strong) connectedness. A graph is (strongly) connected if it has exactly one (strongly) connected component.<br></p>
+<p>The <strong><em>distance</em></strong> $d(a, b)$ of $a, b$ is the length of the shortest path connecting $a$ to $b$.<br><br>The <strong><em>diameter</em></strong> (直径) of a graph $G$ is the maximum finite distance between two nodes in $G$.</p>
+<p>A <strong><em>tree</em></strong> is a graph that has exactly one vertex with no in-edges, called the <strong><em>root</em></strong>, and no undirected cycles. A <strong><em>leaf</em></strong> of a tree is a vertex with no out edges. A <strong><em>forest</em></strong> is a graph that consists of a set of trees.</p>
+<p>Let $G$ and $G’$ be two directed graphs. A function $h : V \to V’$ is a <strong><em>homomorphism</em></strong> (同态) from $G$ to $G’$ if for each pair $u, v \in V$, $(u, v) \in E$ implies $(h(u), h(v)) \in E’$. The function $h$ is an <strong><em>isomorphism</em></strong> (同构) from $G$ to $G’$ if $h$ is a one-one onto mapping from $V$ to $V’$. $h$ is a homomorphism from $G$ to $G’$, and $h^{-1}$ is a homomorphism form $G’$ to $G$. An <strong><em>automorphism</em></strong> (自同构) on $G$ is an isomorphism form $G$ to $G$.</p>
+<h4 id="Permutation"><a href="#Permutation" class="headerlink" title="Permutation"></a>Permutation</h4><p>A <strong><em>permutation</em></strong> (置换) of $S$ is a one-one onto function $\rho : S \to S$.<br><br>A permutation $\rho’$ is <em>derived</em> from permutation $\rho$ by an <em>exchange</em> if the listing corresponding to $\rho$ and $\rho’$ agree everywhere except at some positions $i$ and $i + 1$, where the values are exchanged.</p>
+<table>
+<tr>
+<td bgcolor="#CAE1FF">
+<b>Theorem </b> Given two permutations $\rho$ and $\rho'$, $\rho'$ can be derived from $\rho$ using a finite sequence of exchanges.
+</td>
+</tr>
+</table>
 
     </div>
 
@@ -323,7 +335,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Theoretical-Background"><span class="nav-number">1.</span> <span class="nav-text">Theoretical Background</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Binary-Relation"><span class="nav-number">1.1.</span> <span class="nav-text">Binary Relation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Graph"><span class="nav-number">1.2.</span> <span class="nav-text">Graph</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Permutation"><span class="nav-number">1.3.</span> <span class="nav-text">Permutation</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Theoretical-Background"><span class="nav-number">1.</span> <span class="nav-text">Theoretical Background</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Binary-Relation"><span class="nav-number">1.1.</span> <span class="nav-text">Binary Relation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Graph"><span class="nav-number">1.2.</span> <span class="nav-text">Graph</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Permutation"><span class="nav-number">1.3.</span> <span class="nav-text">Permutation</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
