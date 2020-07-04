@@ -20,25 +20,23 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="To calculate the longest palindrome substring. Algorithm preprocessinginsert ‘#’ between adjacent characters in the string, e.g., babad $\rightarrow$ #b#a#b#a#d#remark: after preprocessing, the length">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Manacher Algorithm">
-<meta property="og:url" content="http://yoursite.com/2020/06/28/manacher/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="Probability and Computing &amp;#58; Chapter 1 Events and Probability">
+<meta property="og:url" content="http://yoursite.com/2020/07/02/probandcomp-1/index.html">
 <meta property="og:site_name" content="Keep Working">
-<meta property="og:description" content="To calculate the longest palindrome substring. Algorithm preprocessinginsert ‘#’ between adjacent characters in the string, e.g., babad $\rightarrow$ #b#a#b#a#d#remark: after preprocessing, the length">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/2020/06/28/manacher/manacher1.jpg">
-<meta property="og:image" content="http://yoursite.com/2020/06/28/manacher/manacher2.jpg">
-<meta property="og:image" content="http://yoursite.com/2020/06/28/manacher/manacher3.jpg">
-<meta property="article:published_time" content="2020-06-28T01:16:52.000Z">
-<meta property="article:modified_time" content="2020-07-01T14:13:20.829Z">
+<meta property="og:image" content="http://yoursite.com/2020/07/02/probandcomp-1/cover.png">
+<meta property="og:image" content="http://yoursite.com/2020/07/02/probandcomp-1/equation1.png">
+<meta property="og:image" content="http://yoursite.com/2020/07/02/probandcomp-1/mincut.png">
+<meta property="article:published_time" content="2020-07-02T10:05:54.000Z">
+<meta property="article:modified_time" content="2020-07-04T07:28:11.773Z">
 <meta property="article:author" content="Xiangyu Gao">
-<meta property="article:tag" content="Algorithm">
-<meta property="article:tag" content="CPP">
+<meta property="article:tag" content="Daily Reading">
+<meta property="article:tag" content="Probability">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/06/28/manacher/manacher1.jpg">
+<meta name="twitter:image" content="http://yoursite.com/2020/07/02/probandcomp-1/cover.png">
 
-<link rel="canonical" href="http://yoursite.com/2020/06/28/manacher/">
+<link rel="canonical" href="http://yoursite.com/2020/07/02/probandcomp-1/">
 
 
 <script id="page-configurations">
@@ -51,7 +49,7 @@
   };
 </script>
 
-  <title>Manacher Algorithm | Keep Working</title>
+  <title>Probability and Computing &#58; Chapter 1 Events and Probability | Keep Working</title>
   
 
 
@@ -171,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/28/manacher/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/02/probandcomp-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/header.jpg">
@@ -184,7 +182,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Manacher Algorithm
+          Probability and Computing &#58; Chapter 1 Events and Probability
         </h1>
 
         <div class="post-meta">
@@ -194,14 +192,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-06-28 09:16:52" itemprop="dateCreated datePublished" datetime="2020-06-28T09:16:52+08:00">2020-06-28</time>
+              <time title="Created: 2020-07-02 18:05:54" itemprop="dateCreated datePublished" datetime="2020-07-02T18:05:54+08:00">2020-07-02</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-01 22:13:20" itemprop="dateModified" datetime="2020-07-01T22:13:20+08:00">2020-07-01</time>
+                <time title="Modified: 2020-07-04 15:28:11" itemprop="dateModified" datetime="2020-07-04T15:28:11+08:00">2020-07-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -209,7 +207,11 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a>
+                  <a href="/categories/Books/" itemprop="url" rel="index"><span itemprop="name">Books</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Probability/" itemprop="url" rel="index"><span itemprop="name">Probability</span></a>
                 </span>
             </span>
 
@@ -224,90 +226,38 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>To calculate the longest palindrome substring.</p>
-<h4 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h4><ul>
-<li>preprocessing<br>insert ‘#’ between adjacent characters in the string, e.g., babad $\rightarrow$ #b#a#b#a#d#<br><br><strong>remark</strong>: after preprocessing, the length of the string after and the length of the palindrome substring is odd.</li>
-</ul>
+        <div style="width:25%;margin:auto"><img src="/2020/07/02/probandcomp-1/cover.png" class title="cover"></div>
+
 <a id="more"></a>
-<ul>
-<li>array P<br>P[i] : The maximum extension length of the palindrome substring centered on the i-th character.<br><strong>remark</strong>: P[i] is the length of the palindrome substring centered on the i-th caracter of the original string.<br>For example: abbabb</li>
-</ul>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">char</th>
-<th style="text-align:center">#</th>
-<th style="text-align:center">a</th>
-<th style="text-align:center">#</th>
-<th style="text-align:center">b</th>
-<th style="text-align:center">#</th>
-<th style="text-align:center">b</th>
-<th style="text-align:center">#</th>
-<th style="text-align:center">a</th>
-<th style="text-align:center">#</th>
-<th style="text-align:center">b</th>
-<th style="text-align:center">#</th>
-<th style="text-align:center">b</th>
-<th style="text-align:center">#</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">index</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">3</td>
-<td style="text-align:center">4</td>
-<td style="text-align:center">5</td>
-<td style="text-align:center">6</td>
-<td style="text-align:center">7</td>
-<td style="text-align:center">8</td>
-<td style="text-align:center">9</td>
-<td style="text-align:center">10</td>
-<td style="text-align:center">11</td>
-<td style="text-align:center">12</td>
-</tr>
-<tr>
-<td style="text-align:center">P</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">4</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">5</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-</tr>
-</tbody>
-</table>
-</div>
-<ul>
-<li><p>calculate P with previous information.<br>maxRight: the rightmost boundary.</p>
-<script type="math/tex; mode=display">maxRight = \max\{x + P[x] \mid 0 \le x < i\}.</script><p>center: the center corresponds to maxRight.</p>
-<script type="math/tex; mode=display">center = \arg\max\{x + P[x] \mid 0\le x < i\}.</script><ul>
-<li>case 1: i &gt;= maxRight<br>extend at the i-th character to enlarge maxRight.</li>
-<li><p>case 2: i &lt; maxRight<br>find mirror which is symmetric with i about center.</p>
-<script type="math/tex; mode=display">(mirror + i) / 2 = center.</script><ul>
-<li><p>P[mirror] &lt; maxRight - i, which means that P[i] = P[mirror].<br><img src="/2020/06/28/manacher/manacher1.jpg" alt="avatar"></p>
-</li>
-<li><p>P[mirror] == maxRight - i, which means that P[i] is at least maxRight - i and may be extended.<br><img src="/2020/06/28/manacher/manacher2.jpg" alt="avatar"></p>
-</li>
-<li><p>P[mirror] &gt; maxRight - i, which means that P[i] = maxRight - i and can not be extended.<br><img src="/2020/06/28/manacher/manacher3.jpg" alt="avatar"></p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>In summary, $P[i] = \min\{maxRight - i, P[mirror]\}$</p>
-<h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">manacher</span><span class="params">(<span class="built_in">string</span> str)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">string</span> str_trans = <span class="string">"#"</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">char</span> c : str) &#123;</span><br><span class="line">        str_trans += c;</span><br><span class="line">        str_trans += <span class="string">'#'</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> n = str_trans.length();</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">p</span><span class="params">(n, <span class="number">0</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> maxRight = <span class="number">0</span>, center = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> maxLen = <span class="number">1</span>, start = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i &lt; maxRight) &#123;</span><br><span class="line">            <span class="keyword">int</span> mirror = <span class="number">2</span>*center - i;</span><br><span class="line">            p[i] = <span class="built_in">min</span>(maxRight - i, p[mirror]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> left = i - (<span class="number">1</span> + p[i]), right = i + (<span class="number">1</span> + p[i]);</span><br><span class="line">        <span class="keyword">while</span> (left &gt;= <span class="number">0</span> &amp;&amp; right &lt; n &amp;&amp; str_trans[left] == str_trans[right]) &#123;</span><br><span class="line">            p[i]++;</span><br><span class="line">            left--;</span><br><span class="line">            right++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (i + p[i] &gt; maxRight) &#123;</span><br><span class="line">            maxRight = i + p[i];</span><br><span class="line">            center = i;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (p[i] &gt; maxLen) &#123;</span><br><span class="line">            maxLen = p[i];</span><br><span class="line">            start = (i - maxLen) / <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> str.substr(start, maxLen);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Chapter-1-Events-and-Probability"><a href="#Chapter-1-Events-and-Probability" class="headerlink" title="Chapter 1 Events and Probability"></a>Chapter 1 Events and Probability</h3><p><strong>Definition</strong> (probability space) A probability space has three components:</p>
+<ol>
+<li>A sample space $\Omega$, which is the set of all possible outcomes of the random process modeled by the probability space;</li>
+<li>A family of sets $\mathcal{F}$ representing the allowable events, where each set in $\mathcal{F}$ is a subset of the sample space $\Omega$; and</li>
+<li>A probability function $\mathrm{Pr} : \mathcal{F} \to \mathbb{R}$.</li>
+</ol>
+<p><strong>Definition</strong> (probability function) A probability function is any function $\mathrm{Pr} : \mathcal{F} \to \mathbb{R}$ that satisfies the following conditions:</p>
+<ol>
+<li>For any event $E$, $0 \le \mathrm{Pr}(E) \le 1$;</li>
+<li>$\mathrm{Pr}(\Omega) = 1$; and</li>
+<li>For any finite or countably infinite sequence of pairwise mutually disjoint events $E_1, E_2, E_3, \cdots$,<script type="math/tex; mode=display">\mathrm{Pr}(\cup_{i \ge 1}E_i) = \sum_{i \ge 1}\mathrm{Pr}(E_i).</script></li>
+</ol>
+<p><strong>Lemma</strong> <em>For any two events $E_1$ and $E_2$</em>,</p>
+<script type="math/tex; mode=display">\mathrm{Pr}(E_1 \cup E_2) = \mathrm{Pr}(E_1) + \mathrm{Pr}(E_2) - \mathrm{Pr}(E_1 \cap E_2).</script><p><strong>Lemma</strong>(union bound) <em>For any finite or countably infinite sequence of events</em> $E_1, E_2, \cdots$,</p>
+<script type="math/tex; mode=display">\mathrm{Pr}(\cup_{i \ge 1}E_i) \le \sum_{i\ge 1}\mathrm{Pr}(E_1).</script><p><strong>Lemma</strong> <em>Let $E_1, E_2, \cdots, E_n$ be any $n$ events. Then</em></p>
+<div style="width:70%;margin:auto"><img src="/2020/07/02/probandcomp-1/equation1.png" class></div>
+
+<p><strong>Definition</strong>(independence) Two events $E$ and $F$ are independent if and only if</p>
+<script type="math/tex; mode=display">\mathrm{Pr}(E\cap F) = \mathrm{Pr}(E) \cdot \mathrm{Pr}(F).</script><p>More generally, events $E_1, E_2, \cdots, E_k$ are mutually independent if and only if, for any subset $I \subseteq[1, k]$,</p>
+<script type="math/tex; mode=display">\mathrm{Pr}(\cap_{i \in I}E_i) = \Pi_{i\in I}\mathrm{Pr}(E_i).</script><p><strong>Definition</strong>(conditional probability) The conditional probability that event $E$ occurs given that event $F$ occurs is</p>
+<script type="math/tex; mode=display">\mathrm{Pr}(E \mid F) = \frac{\mathrm{Pr}(E\cap F)}{\mathrm{Pr}(F)}.</script><p>When $E$ and $F$ are independent and $\mathrm{Pr}(F) \ne 0$, then $\mathrm{Pr}(E \mid F) = \frac{\mathrm{Pr}(E \cap F)}{\mathrm{Pr}(F)} = \frac{\mathrm{Pr}(E)\mathrm{Pr}(F)}{\mathrm{Pr}(F)} = \mathrm{Pr}(E)$.</p>
+<p>This means that if two events are independent, then information about one event should not affect the probability of the second event.</p>
+<h4 id="Appilcation-Verifying-Matrix-Multiplication-i-e-to-verify-whether-AB-C-efficiently"><a href="#Appilcation-Verifying-Matrix-Multiplication-i-e-to-verify-whether-AB-C-efficiently" class="headerlink" title="Appilcation: Verifying Matrix Multiplication, i.e., to verify whether $AB = C$ efficiently"></a>Appilcation: Verifying Matrix Multiplication, i.e., to verify whether $AB = C$ efficiently</h4><p>Algorithm($\Theta(n^2)$): Choose a random vector $\bar{r} = (r_1, r_2, \cdots, r_n) \in \{0, 1\}^n$. If $A(B\bar{r}) \ne C\bar{r}$, then return $AB \ne C$. Otherwise, return $AB = C$. <br><br><strong>Theorem</strong> <em>If $AB \ne C$ and if $\bar{r}$ is chosen uniformly at random from $\{0, 1\}^\star$, then $\mathrm{Pr}(AB\bar{r} = C\bar{r}) \le \frac{1}{2}$.</em><br>Proof: $D = AB - C \ne 0$ and $AB\bar{r} = C\bar{r}$ then it is known that $D\bar{r} = 0$, i.e., $\sum^n_{j=1}d_{1j}r_j = 0$, or equivalently, $r_1 = -\frac{\sum^n_{j=2}d_{1j}r_j}{d_{11}}$. ($D\ne 0$, 考虑$D$中包含非0元素的行，不失一般性，令$d_{11}\ne 0$).<br><br>According to the <em>principle of deferred decisions</em>, consider the situation $r_2, \cdots, r_n$ are chosen, then the right-hand side is determined ($-\frac{\sum^n_{j=2}d_{1j}r_j}{d_{11}}$), and there is at most one choice of $r_1$ that will make that equality holds.</p>
+<p>The principle of deferred decisions corresponds to conditioning on the revealed values; when some of the random variables are revealed, we must condition on the revealed values for the rest of the analysis.</p>
+<p><strong>Theorem</strong>(Law of Total Probability) <em>Let $E_1, E_2, \cdots, E_n$ be mutually disjoint events in the same space $\Omega$, and let $\cup_{i=1}^nE_i = \Omega$. Then</em></p>
+<script type="math/tex; mode=display">\mathrm{Pr}(B) = \sum^n_{i=1}\mathrm{Pr}(B\cap E_i) = \sum^n_{i=1}\mathrm{Pr}(B\mid E_i)\mathrm{Pr}(E_i).</script><p><strong>Theorem</strong>(Bayes’ Law) <em>Assume that $E_1, E_2, \cdots, E_n$ are mutually disjoint sets such that $\cup^n_{i=1}E_i = E$. Then</em></p>
+<script type="math/tex; mode=display">\mathrm{Pr}(E_j \mid B) = \frac{\mathrm{Pr}(E_j \cap B)}{\mathrm{Pr}(B)} = \frac{\mathrm{Pr}(B\mid E_j)\mathrm{Pr}(E_j)}{\sum^n_{i=1}\mathrm{Pr}(B \mid E_i)\mathrm{Pr}(E_i)}.</script><p>The Bayes’ Law can evaluate the gradual change in our confidence in the correctness of the matrix multiplication as we repeat the randomized test.</p>
+<h4 id="Application-A-Randomized-Min-Cut-Algorithm"><a href="#Application-A-Randomized-Min-Cut-Algorithm" class="headerlink" title="Application: A Randomized Min-Cut Algorithm"></a>Application: A Randomized Min-Cut Algorithm</h4><p>Min-Cut used in network reliability and clustering.<br>Algorithm: consists of $n-2$ iterations, in each, picks an edge in the graph and contracts that edge. (迭代过程中，新图的任一割集一定也是原始图的割集，但是原始图的每一个割集并不一定都是中间迭代过程中新图的割集)</p>
+<p><div style="width:70%;margin:auto"><img src="/2020/07/02/probandcomp-1/mincut.png" class></div><br><strong>Theorem</strong> <em>The algorithm outputs a min-cut set with probability at least $2/n(n-1)$.</em><br>Proof: Let $E_i$ be the event that the edge contracted in iteration $i$ is not in $C$, where $C$ is a min-cut. And $F_i = \cap_{j=1}^i E_j$, $\mathrm{Pr}(E_i \mid F_{i-1}) \ge 1 - \frac{k}{\frac{k(n-i+1)}{2}} = 1 - \frac{2}{n-i+1}$ ($n - i$个点的图并且最小割的大小为$k$), $\mathrm{Pr}(F_{n-2}) = \mathrm{Pr}(E_{n-2}\cap F_{n-3}) \cdot \mathrm{Pr}(F_{n-3})$, $\mathrm{Pr}(E_1) = \mathrm{Pr}(F_1) \ge 1 - \frac{2k}{nk} = 1 - \frac{2}{n}$.</p>
 
     </div>
 
@@ -317,8 +267,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
-              <a href="/tags/CPP/" rel="tag"># CPP</a>
+              <a href="/tags/Daily-Reading/" rel="tag"># Daily Reading</a>
+              <a href="/tags/Probability/" rel="tag"># Probability</a>
           </div>
 
         
@@ -326,11 +276,11 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2020/06/30/databasefoundation-1/" rel="next" title="Foundations of Databases &#58; 1 Database Systems">
-      Foundations of Databases &#58; 1 Database Systems <i class="fa fa-chevron-right"></i>
+    <a href="/2020/07/02/databasefoundation-2-3/" rel="prev" title="Foundations of Databases &#58; 2.3 Logics">
+      <i class="fa fa-chevron-left"></i> Foundations of Databases &#58; 2.3 Logics
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -389,7 +339,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Algorithm"><span class="nav-number">1.</span> <span class="nav-text">Algorithm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Code"><span class="nav-number">2.</span> <span class="nav-text">Code</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter-1-Events-and-Probability"><span class="nav-number">1.</span> <span class="nav-text">Chapter 1 Events and Probability</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Appilcation-Verifying-Matrix-Multiplication-i-e-to-verify-whether-AB-C-efficiently"><span class="nav-number">1.1.</span> <span class="nav-text">Appilcation: Verifying Matrix Multiplication, i.e., to verify whether $AB &#x3D; C$ efficiently</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Application-A-Randomized-Min-Cut-Algorithm"><span class="nav-number">1.2.</span> <span class="nav-text">Application: A Randomized Min-Cut Algorithm</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
