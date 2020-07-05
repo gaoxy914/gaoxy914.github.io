@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/07/02/databasefoundation-2-3/cover.png">
 <meta property="article:published_time" content="2020-07-02T09:31:22.000Z">
-<meta property="article:modified_time" content="2020-07-02T10:03:17.927Z">
+<meta property="article:modified_time" content="2020-07-04T08:53:18.301Z">
 <meta property="article:author" content="Xiangyu Gao">
 <meta property="article:tag" content="Database Theory">
 <meta property="article:tag" content="Daily Reading">
@@ -189,10 +189,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-07-02 17:31:22 / Modified: 18:03:17" itemprop="dateCreated datePublished" datetime="2020-07-02T17:31:22+08:00">2020-07-02</time>
+              <time title="Created: 2020-07-02 17:31:22" itemprop="dateCreated datePublished" datetime="2020-07-02T17:31:22+08:00">2020-07-02</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-04 16:53:18" itemprop="dateModified" datetime="2020-07-04T16:53:18+08:00">2020-07-04</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -221,7 +227,7 @@
         <div style="width:25%;margin:auto"><img src="/2020/07/02/databasefoundation-2-3/cover.png" class title="cover"></div>
 
 <a id="more"></a>
-<h3 id="Propositional-Calculus-命题演算"><a href="#Propositional-Calculus-命题演算" class="headerlink" title="Propositional Calculus (命题演算)"></a>Propositional Calculus (命题演算)</h3><p><strong><em>propositional variables</em></strong> $p, q, r, \cdots$ <br><br><strong><em>propositional constants</em></strong> <em>true</em> and <em>false</em><br>(Well-formed) <strong><em>propositional formulas</em></strong> are constructed from the propositional variables and constants, using the unary connective <strong><em>negation</em></strong> ($\neg$) and the binary connectives <strong><em>disjunction</em></strong> ($\vee$) (析取), <strong><em>conjunction</em></strong> ($\wedge$) (合取), <strong><em>implication</em></strong> ($\to$), and <strong><em>equivalence</em></strong> ($\leftrightarrow$). <br><br>A <strong><em>truth assignment</em></strong> for a set $V$ of propositional variables is a function $\xi : V \to \{true, false\}$, the truth value is denoted as $\varphi[\xi]$. <br><br>$\varphi$ is <strong><em>satisfiable</em></strong> if at least one truth assignment makes it true; otherwise, it is unsatisfiable. It is <strong><em>valid</em></strong> if each truth assignment for the variables in $\varphi$ makes it true. <br><br>$\varphi$ <strong><em>logically implies</em></strong> $\psi$ (or $\psi$ is a logical consequence of $\varphi$), $\varphi \vDash \psi$, if for each truth assignment $\xi$, if $\varphi[\xi]$ is true, then $\psi[\xi]$ is true. $\varphi$ and $\psi$ are logically equivalent, dentoed as $\varphi \equiv \psi$, if $\varphi \vDash \psi$ and $\psi \vDash \varphi$. <br><br><strong><em>literal</em></strong>: $p$ or $\neg p$. <strong><em>Conjunctive normal form</em></strong> (CNF): $\psi_1 \wedge \cdots \wedge \psi_n$, where $\psi_i$ is a disjunction of literals. <strong><em>Disjunctive normal form</em></strong> (DNF) : $\psi_1 \vee \cdots \vee \psi_n$, where $\psi_i$ is a conjunction of literals.</p>
+<h3 id="2-3-Logics"><a href="#2-3-Logics" class="headerlink" title="2.3 Logics"></a>2.3 Logics</h3><h4 id="Propositional-Calculus-命题演算"><a href="#Propositional-Calculus-命题演算" class="headerlink" title="Propositional Calculus (命题演算)"></a>Propositional Calculus (命题演算)</h4><p><strong><em>propositional variables</em></strong> $p, q, r, \cdots$ <br><br><strong><em>propositional constants</em></strong> <em>true</em> and <em>false</em><br>(Well-formed) <strong><em>propositional formulas</em></strong> are constructed from the propositional variables and constants, using the unary connective <strong><em>negation</em></strong> ($\neg$) and the binary connectives <strong><em>disjunction</em></strong> ($\vee$) (析取), <strong><em>conjunction</em></strong> ($\wedge$) (合取), <strong><em>implication</em></strong> ($\to$), and <strong><em>equivalence</em></strong> ($\leftrightarrow$). <br><br>A <strong><em>truth assignment</em></strong> for a set $V$ of propositional variables is a function $\xi : V \to \{true, false\}$, the truth value is denoted as $\varphi[\xi]$. <br><br>$\varphi$ is <strong><em>satisfiable</em></strong> if at least one truth assignment makes it true; otherwise, it is unsatisfiable. It is <strong><em>valid</em></strong> if each truth assignment for the variables in $\varphi$ makes it true. <br><br>$\varphi$ <strong><em>logically implies</em></strong> $\psi$ (or $\psi$ is a logical consequence of $\varphi$), $\varphi \vDash \psi$, if for each truth assignment $\xi$, if $\varphi[\xi]$ is true, then $\psi[\xi]$ is true. $\varphi$ and $\psi$ are logically equivalent, dentoed as $\varphi \equiv \psi$, if $\varphi \vDash \psi$ and $\psi \vDash \varphi$. <br><br><strong><em>literal</em></strong>: $p$ or $\neg p$. <strong><em>Conjunctive normal form</em></strong> (CNF): $\psi_1 \wedge \cdots \wedge \psi_n$, where $\psi_i$ is a disjunction of literals. <strong><em>Disjunctive normal form</em></strong> (DNF) : $\psi_1 \vee \cdots \vee \psi_n$, where $\psi_i$ is a conjunction of literals.</p>
 <table>
 <tr>
 <td bgcolor="#CAE1FF">
@@ -231,7 +237,7 @@ If $\varphi$ is a propositional formula, then there is some formula $\psi$ equiv
 </tr>
 </table>
 
-<h3 id="First-Order-Logic"><a href="#First-Order-Logic" class="headerlink" title="First-Order Logic"></a>First-Order Logic</h3><p><strong><em>first-order predicate calculus</em></strong> (一阶谓词演算)<br>Each first order language $L$ includes a set of variables, the propositional connectives, $\exists$ and $\forall$, ), (, and ,. <br><br>$L$ includes: 1. <strong><em>constant</em></strong> symbols; 2. <strong><em>$n$-ary predicate</em></strong> symbols; 3. <strong><em>$n$-ary function</em></strong> symbols.<br>propositional constants are <em>true</em> and <em>false</em>.<br><strong><em>Terms</em></strong> built from constants, variables and function symbols.<br><strong><em>Atom</em></strong>: <em>true</em>, <em>false</em>, and $R(t_1, \cdots, t_n)$ where $R$ is an $n$-ary predicate symbol, $t_i$ is a term.<br>A term or formula is <em>ground</em> if it involves no variables.<br><strong><em>free</em></strong> and <strong><em>bound</em></strong>:</p>
+<h4 id="First-Order-Logic"><a href="#First-Order-Logic" class="headerlink" title="First-Order Logic"></a>First-Order Logic</h4><p><strong><em>first-order predicate calculus</em></strong> (一阶谓词演算)<br>Each first order language $L$ includes a set of variables, the propositional connectives, $\exists$ and $\forall$, ), (, and ,. <br><br>$L$ includes: 1. <strong><em>constant</em></strong> symbols; 2. <strong><em>$n$-ary predicate</em></strong> symbols; 3. <strong><em>$n$-ary function</em></strong> symbols.<br>propositional constants are <em>true</em> and <em>false</em>.<br><strong><em>Terms</em></strong> built from constants, variables and function symbols.<br><strong><em>Atom</em></strong>: <em>true</em>, <em>false</em>, and $R(t_1, \cdots, t_n)$ where $R$ is an $n$-ary predicate symbol, $t_i$ is a term.<br>A term or formula is <em>ground</em> if it involves no variables.<br><strong><em>free</em></strong> and <strong><em>bound</em></strong>:</p>
 <ol>
 <li>variable in atom is free;</li>
 <li>$\varphi = \psi_1 \vee \psi_2$, $x$ in $\varphi$ is free if $x$ is free in $\psi_1$ or $\psi_2$;</li>
@@ -322,7 +328,7 @@ If $\varphi$ is a propositional formula, then there is some formula $\psi$ equiv
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Propositional-Calculus-命题演算"><span class="nav-number">1.</span> <span class="nav-text">Propositional Calculus (命题演算)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#First-Order-Logic"><span class="nav-number">2.</span> <span class="nav-text">First-Order Logic</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-Logics"><span class="nav-number">1.</span> <span class="nav-text">2.3 Logics</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Propositional-Calculus-命题演算"><span class="nav-number">1.1.</span> <span class="nav-text">Propositional Calculus (命题演算)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#First-Order-Logic"><span class="nav-number">1.2.</span> <span class="nav-text">First-Order Logic</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -338,7 +344,7 @@ If $\varphi$ is a propositional formula, then there is some formula $\psi$ equiv
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

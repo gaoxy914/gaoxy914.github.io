@@ -28,7 +28,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/07/01/databasefoundation-2-2/cover.png">
 <meta property="og:image" content="http://yoursite.com/2020/07/01/databasefoundation-2-2/reductions.png">
 <meta property="article:published_time" content="2020-07-01T06:11:56.000Z">
-<meta property="article:modified_time" content="2020-07-02T01:36:48.381Z">
+<meta property="article:modified_time" content="2020-07-04T08:52:45.762Z">
 <meta property="article:author" content="Xiangyu Gao">
 <meta property="article:tag" content="Database Theory">
 <meta property="article:tag" content="Daily Reading">
@@ -198,7 +198,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-02 09:36:48" itemprop="dateModified" datetime="2020-07-02T09:36:48+08:00">2020-07-02</time>
+                <time title="Modified: 2020-07-04 16:52:45" itemprop="dateModified" datetime="2020-07-04T16:52:45+08:00">2020-07-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -228,8 +228,8 @@
         <div style="width:25%;margin:auto"><img src="/2020/07/01/databasefoundation-2-2/cover.png" class title="cover"></div>
 
 <a id="more"></a>
-<p><strong><em>alphabet</em></strong> $\Sigma$,<br><strong><em>word</em></strong> over $\Sigma$ is $w = a_1,\cdots,a_n$, where $a_i \in \Sigma$,<br><strong><em>length</em></strong> $|w| = n$,<br><strong><em>concatenation</em></strong> (级联) of $u$, $v$ denoted $uv$, concatenation with itself $u^n$,<br>$\Sigma^*$ all words over $\Sigma$,<br><strong><em>language</em></strong> is a subset of $\Sigma^*$.</p>
-<h3 id="Finite-Automata"><a href="#Finite-Automata" class="headerlink" title="Finite Automata"></a>Finite Automata</h3><p><strong><em>acceptance</em></strong>, accept precisely the words that belong to some language of interest.<br>finite-state automata (fsa, 有穷状态自动机), scanning word, remembering only a bounded amount of information about what has already been scanned.<br>An fsa $M$ over $\Sigma$ is a 5-tuple $\langle S, \Sigma, \delta. s_0, F\rangle$:</p>
+<h3 id="2-2-Languages-Computability-and-Complexity"><a href="#2-2-Languages-Computability-and-Complexity" class="headerlink" title="2.2 Languages, Computability, and Complexity"></a>2.2 Languages, Computability, and Complexity</h3><p><strong><em>alphabet</em></strong> $\Sigma$,<br><strong><em>word</em></strong> over $\Sigma$ is $w = a_1,\cdots,a_n$, where $a_i \in \Sigma$,<br><strong><em>length</em></strong> $|w| = n$,<br><strong><em>concatenation</em></strong> (级联) of $u$, $v$ denoted $uv$, concatenation with itself $u^n$,<br>$\Sigma^*$ all words over $\Sigma$,<br><strong><em>language</em></strong> is a subset of $\Sigma^*$.</p>
+<h4 id="Finite-Automata"><a href="#Finite-Automata" class="headerlink" title="Finite Automata"></a>Finite Automata</h4><p><strong><em>acceptance</em></strong>, accept precisely the words that belong to some language of interest.<br>finite-state automata (fsa, 有穷状态自动机), scanning word, remembering only a bounded amount of information about what has already been scanned.<br>An fsa $M$ over $\Sigma$ is a 5-tuple $\langle S, \Sigma, \delta. s_0, F\rangle$:</p>
 <ul>
 <li>$S$ finite set of <em>states</em>;</li>
 <li>$\delta$ <em>transition function</em> $S \times \Sigma \to S$;</li>
@@ -253,7 +253,7 @@ For any regular language $L$, there exists an integer $n$ such that for all $x \
 
 <p>For example, Let us prove $L = \{0^n1^n \mid n \ge 0\}$ is irregular using Pumping Lemma.<br><br>Assume that $L$ is regular, then by Pumping Lemma the above given rules follow.<br><br>Now let $x \in L$ and $|x| \ge n$. So by Pumping Lemma, there exists $u, v, w$ such that $x = 0^n1^n = uvw$ with $|uv| \le n$ and $|v| \ge 1$.<br>So $u = 0^a, v = 0^b, w = 0^c1^n$ where $a + b \le n, b \ge 1, c \ge 0, a + b + c = n$.<br><br>Then if $i = 0$, $uv^0w = uw = 0^a0^c1^n = 0^{a+c}1^n \notin L$, since $a + c \ne n$.</p>
 <p>A regular expression over $\Sigma$ is wrriten using the symbols in $\Sigma$ and the operations concatenation, * and +.<br><br>A language $L$ is regular iff it can be specified by a regular expression.<br><br>Nondeterministic fsa (nfsa) accept the same set of language as fsa. However, the number of states in the equivalent deterministic fsa may be exponential in the number of states of the nondeterministic one.</p>
-<h3 id="Turing-Machines-and-Computability"><a href="#Turing-Machines-and-Computability" class="headerlink" title="Turing Machines and Computability"></a>Turing Machines and Computability</h3><p>A language is <strong><em>recursively enumerable</em></strong> (r.e.) iff it is $L(M)$ for some TM $M$. It means that there is an algorithm that is guaranteed to say eventually yes on input $w$ if $w \in L$ but may run forever if $w \notin L$ (if it stops, it says no).<br><br>$L$ is recursive means that there is an algorithm that always decides in finite time whether a given word is in $L$. If $L = L(M)$ and $M$ always halts, $L$ is <strong><em>recursive</em></strong>. A language whose complement is r.e. is called <strong><em>co-r.e.</em></strong>.<br>Some facts:</p>
+<h4 id="Turing-Machines-and-Computability"><a href="#Turing-Machines-and-Computability" class="headerlink" title="Turing Machines and Computability"></a>Turing Machines and Computability</h4><p>A language is <strong><em>recursively enumerable</em></strong> (r.e.) iff it is $L(M)$ for some TM $M$. It means that there is an algorithm that is guaranteed to say eventually yes on input $w$ if $w \in L$ but may run forever if $w \notin L$ (if it stops, it says no).<br><br>$L$ is recursive means that there is an algorithm that always decides in finite time whether a given word is in $L$. If $L = L(M)$ and $M$ always halts, $L$ is <strong><em>recursive</em></strong>. A language whose complement is r.e. is called <strong><em>co-r.e.</em></strong>.<br>Some facts:</p>
 <ol>
 <li>If $L$ is r.e. and co-r.e., then it is recursive.</li>
 <li>$L$ is r.e. iff it is the domain of a computable function.</li>
@@ -264,7 +264,7 @@ For any regular language $L$, there exists an integer $n$ such that for all $x \
 <div style="width:50%;margin:auto"><img src="/2020/07/01/databasefoundation-2-2/reductions.png" class title="usual reductions in some complexity classes."></div>
 
 <p>NP-COMPLETE problem: 3-SAT<br>PSPACE-COMPLETE problem: QBF<br>PTIME-COMPLETE problem: CFG emptiness</p>
-<h3 id="Context-Free-Grammars"><a href="#Context-Free-Grammars" class="headerlink" title="Context-Free Grammars"></a>Context-Free Grammars</h3><p>A CFG is a 4-tuple $\langle N, \Sigma, S, P\rangle$, where:</p>
+<h4 id="Context-Free-Grammars"><a href="#Context-Free-Grammars" class="headerlink" title="Context-Free Grammars"></a>Context-Free Grammars</h4><p>A CFG is a 4-tuple $\langle N, \Sigma, S, P\rangle$, where:</p>
 <ul>
 <li>$N$ a finite set of <em>nonterminal symbols</em>;</li>
 <li>$\Sigma$ a finite alphabet of <em>terminal symbols</em>, disjoint from $N$;</li>
@@ -380,7 +380,7 @@ For any $L$ in CFL, there exists an integer $n$ such that for all $x \in L$ with
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Finite-Automata"><span class="nav-number">1.</span> <span class="nav-text">Finite Automata</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Turing-Machines-and-Computability"><span class="nav-number">2.</span> <span class="nav-text">Turing Machines and Computability</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Context-Free-Grammars"><span class="nav-number">3.</span> <span class="nav-text">Context-Free Grammars</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-Languages-Computability-and-Complexity"><span class="nav-number">1.</span> <span class="nav-text">2.2 Languages, Computability, and Complexity</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Finite-Automata"><span class="nav-number">1.1.</span> <span class="nav-text">Finite Automata</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Turing-Machines-and-Computability"><span class="nav-number">1.2.</span> <span class="nav-text">Turing Machines and Computability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Context-Free-Grammars"><span class="nav-number">1.3.</span> <span class="nav-text">Context-Free Grammars</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -396,7 +396,7 @@ For any $L$ in CFL, there exists an integer $n$ such that for all $x \in L$ with
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
