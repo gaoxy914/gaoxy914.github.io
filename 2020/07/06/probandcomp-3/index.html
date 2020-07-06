@@ -21,20 +21,21 @@
   </script>
 
   <meta property="og:type" content="article">
-<meta property="og:title" content="Foundations of Databases &amp;#58; 2.3 Logics">
-<meta property="og:url" content="http://yoursite.com/2020/07/02/databasefoundation-2-3/index.html">
+<meta property="og:title" content="Probability and Computing &amp;#58; Chapter 3 Moments and Deviations">
+<meta property="og:url" content="http://yoursite.com/2020/07/06/probandcomp-3/index.html">
 <meta property="og:site_name" content="Keep Working">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/2020/07/02/databasefoundation-2-3/cover.png">
-<meta property="article:published_time" content="2020-07-02T09:31:22.000Z">
-<meta property="article:modified_time" content="2020-07-04T08:53:18.301Z">
+<meta property="og:image" content="http://yoursite.com/2020/07/06/probandcomp-3/cover.png">
+<meta property="og:image" content="http://yoursite.com/2020/07/06/probandcomp-3/algorithm.png">
+<meta property="article:published_time" content="2020-07-05T23:50:16.000Z">
+<meta property="article:modified_time" content="2020-07-06T09:16:18.280Z">
 <meta property="article:author" content="Xiangyu Gao">
-<meta property="article:tag" content="Database Theory">
 <meta property="article:tag" content="Daily Reading">
+<meta property="article:tag" content="Probability">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/07/02/databasefoundation-2-3/cover.png">
+<meta name="twitter:image" content="http://yoursite.com/2020/07/06/probandcomp-3/cover.png">
 
-<link rel="canonical" href="http://yoursite.com/2020/07/02/databasefoundation-2-3/">
+<link rel="canonical" href="http://yoursite.com/2020/07/06/probandcomp-3/">
 
 
 <script id="page-configurations">
@@ -47,7 +48,7 @@
   };
 </script>
 
-  <title>Foundations of Databases &#58; 2.3 Logics | Keep Working</title>
+  <title>Probability and Computing &#58; Chapter 3 Moments and Deviations | Keep Working</title>
   
 
 
@@ -167,7 +168,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/02/databasefoundation-2-3/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/06/probandcomp-3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/header.jpg">
@@ -180,7 +181,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Foundations of Databases &#58; 2.3 Logics
+          Probability and Computing &#58; Chapter 3 Moments and Deviations
         </h1>
 
         <div class="post-meta">
@@ -189,16 +190,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2020-07-02 17:31:22" itemprop="dateCreated datePublished" datetime="2020-07-02T17:31:22+08:00">2020-07-02</time>
+              <time title="Created: 2020-07-06 07:50:16 / Modified: 17:16:18" itemprop="dateCreated datePublished" datetime="2020-07-06T07:50:16+08:00">2020-07-06</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-04 16:53:18" itemprop="dateModified" datetime="2020-07-04T16:53:18+08:00">2020-07-04</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -209,7 +204,7 @@
                 </span>
                   , 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a>
+                  <a href="/categories/Probability/" itemprop="url" rel="index"><span itemprop="name">Probability</span></a>
                 </span>
             </span>
 
@@ -224,26 +219,59 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <div style="width:25%;margin:auto"><img src="/2020/07/02/databasefoundation-2-3/cover.png" class title="cover"></div>
+        <div style="width:25%;margin:auto"><img src="/2020/07/06/probandcomp-3/cover.png" class title="cover"></div>
 
 <a id="more"></a>
-<h3 id="2-3-Logics"><a href="#2-3-Logics" class="headerlink" title="2.3 Logics"></a>2.3 Logics</h3><h4 id="Propositional-Calculus-命题演算"><a href="#Propositional-Calculus-命题演算" class="headerlink" title="Propositional Calculus (命题演算)"></a>Propositional Calculus (命题演算)</h4><p><strong><em>propositional variables</em></strong> $p, q, r, \cdots$ <br><br><strong><em>propositional constants</em></strong> <em>true</em> and <em>false</em><br>(Well-formed) <strong><em>propositional formulas</em></strong> are constructed from the propositional variables and constants, using the unary connective <strong><em>negation</em></strong> ($\neg$) and the binary connectives <strong><em>disjunction</em></strong> ($\vee$) (析取), <strong><em>conjunction</em></strong> ($\wedge$) (合取), <strong><em>implication</em></strong> ($\to$), and <strong><em>equivalence</em></strong> ($\leftrightarrow$). <br><br>A <strong><em>truth assignment</em></strong> for a set $V$ of propositional variables is a function $\xi : V \to \{true, false\}$, the truth value is denoted as $\varphi[\xi]$. <br><br>$\varphi$ is <strong><em>satisfiable</em></strong> if at least one truth assignment makes it true; otherwise, it is unsatisfiable. It is <strong><em>valid</em></strong> if each truth assignment for the variables in $\varphi$ makes it true. <br><br>$\varphi$ <strong><em>logically implies</em></strong> $\psi$ (or $\psi$ is a logical consequence of $\varphi$), $\varphi \vDash \psi$, if for each truth assignment $\xi$, if $\varphi[\xi]$ is true, then $\psi[\xi]$ is true. $\varphi$ and $\psi$ are logically equivalent, dentoed as $\varphi \equiv \psi$, if $\varphi \vDash \psi$ and $\psi \vDash \varphi$. <br><br><strong><em>literal</em></strong>: $p$ or $\neg p$. <strong><em>Conjunctive normal form</em></strong> (CNF): $\psi_1 \wedge \cdots \wedge \psi_n$, where $\psi_i$ is a disjunction of literals. <strong><em>Disjunctive normal form</em></strong> (DNF) : $\psi_1 \vee \cdots \vee \psi_n$, where $\psi_i$ is a conjunction of literals.</p>
-<table>
-<tr>
-<td bgcolor="#CAE1FF">
-<b>Theorem </b>
-If $\varphi$ is a propositional formula, then there is some formula $\psi$ equivalent to $\varphi$ that is in CNF (respectively DNF).
-</td>
-</tr>
-</table>
+<h2 id="Chapter-3-Moments-and-Deviations"><a href="#Chapter-3-Moments-and-Deviations" class="headerlink" title="Chapter 3 Moments and Deviations"></a>Chapter 3 Moments and Deviations</h2><h3 id="Markov’s-Inequality"><a href="#Markov’s-Inequality" class="headerlink" title="Markov’s Inequality"></a>Markov’s Inequality</h3><p><strong>Theorem</strong>(Markov’s Inequality) <em>Let $X$ be a random variable that assumes only nonnegative values. Then, for all $a &gt; 0$</em>,</p>
+<script type="math/tex; mode=display">\mathrm{Pr}(X \ge a) \le \frac{E[X]}{a}.</script><p>Proof:<br>Let</p>
+<script type="math/tex; mode=display">I =
+\begin{cases}
+1,  & \text{if $X \ge a$} \\
+0, & \text{otherwise}
+\end{cases}</script><p>and since $X \ge 0$, $I \le \frac{X}{a}$. $\mathrm{Pr}(X \ge a) = E[I] \le E[\frac{X}{a}] = \frac{E[X]}{a}$.</p>
+<p>Note: Markov’s inequality gives <em>the best tail bound possible</em> when all we know is the expectation of the random variable and the variable is nonnegative.</p>
+<h3 id="Moments-and-Variance"><a href="#Moments-and-Variance" class="headerlink" title="Moments and Variance"></a>Moments and Variance</h3><p><strong>Definition</strong>(moment) The $k$th moment of a random variable $X$ is $E[X^k]$.</p>
+<p><strong>Definition</strong>(variance) The variance of a random variable is defined as</p>
+<script type="math/tex; mode=display">Var[X] = E[(X - E[X])^2] = E[X^2] - (E[X])^2.</script><p>The standard deviation of a random variable $X$ is</p>
+<script type="math/tex; mode=display">\sigma[X] = \sqrt{Var[X]}.</script><p>The variance and standard deviation offer a measure of how far the random variable is likely to be from its expectation.<br>The variance (and standard deviation) of a random variable are small when the random variable assumes values close to its expectation and are large when it assumes values far from its expectation.</p>
+<p><strong>Definition</strong>(covariance) The covariance of two random variables $X$ and $Y$ is</p>
+<script type="math/tex; mode=display">Cov(X, Y) = E[(X - E[X])(Y - E[Y])].</script><p><strong>Theorem</strong> <em>For any two random variables $X$ and $Y$.</em></p>
+<script type="math/tex; mode=display">Var[X + Y] = Var[X] + Var[Y] + 2Cov(X, Y).</script><p><strong>Theorem</strong> <em>If $X$ and $Y$ are two independent random variables, then</em></p>
+<script type="math/tex; mode=display">E[X\cdot Y] = E[X]\cdot E[Y].</script><p><strong>Corollary</strong> <em>If $X$ and $Y$ are independent random variables, then</em></p>
+<script type="math/tex; mode=display">Cov(X, Y) = 0</script><p>and</p>
+<script type="math/tex; mode=display">Var[X + Y] = Var[X] + Var[Y].</script><p>Proof: $Cov(X, Y) = E[(X - E[X])(Y - E[Y])] = E[X - E[X]]\cdot E[Y - E[Y]] = 0$.</p>
+<p><strong>Theorem</strong> <em>Let $X_1, X_2, \cdots, X_n$ be mutually independent random variables. Then</em></p>
+<script type="math/tex; mode=display">Var[\sum^n_{i = 1}X_i] = \sum^n_{i = 1}Var[X_i].</script><h3 id="Chebyshev’s-Inequality"><a href="#Chebyshev’s-Inequality" class="headerlink" title="Chebyshev’s Inequality"></a>Chebyshev’s Inequality</h3><p><strong>Theorem</strong>(Chebyshev’s Inequality) <em>For any $a &gt; 0$,</em></p>
+<script type="math/tex; mode=display">\mathrm{Pr}(|X - E[X]| \ge a) \le \frac{Var[X]}{a^2}.</script><p>Proof: $\mathrm{Pr}(|X - E[X]| \ge a) = \mathrm{Pr}((X - E[X])^2 \ge a^2) \le \frac{Var[X]}{a^2}$. (Markov’s inequality)</p>
+<p><strong>Corollary</strong> <em>For any $t &gt; 1$</em></p>
+<script type="math/tex; mode=display">\mathrm{Pr}(|X - E[X]| \ge t\cdot \sigma[X]) \le \frac{1}{t^2},</script><script type="math/tex; mode=display">\mathrm{Pr}(|X - E[X]| \ge t\cdot E[X]) \le \frac{Var[X]}{t^2(E[X])^2}.</script><h4 id="Coupon-Collector’s-Problem"><a href="#Coupon-Collector’s-Problem" class="headerlink" title="Coupon Collector’s Problem"></a>Coupon Collector’s Problem</h4><p><a href="https://gaoxy914.github.io/2020/07/04/probandcomp-2/#Application-Coupon-Collector’s-Problem" target="_blank" rel="noopener">coupon collector’s problem</a><br>$E[X] = nH_n$, where $H_n = \sum^n_{i = 1}1/n = \ln{n} + O(1)$.<br><br>Markov’s inequality $\mathrm{Pr}(X \ge 2nH_n) \le \frac{1}{2}$.<br><br>To use Chebyshev’s inequality, the variance of $X$ is needed. $X = \sum^n_{i=1}X_i$, $X_i$ are geometric random variables with parameter $(n - i + 1)/n$, and are independent $Var[X] = \sum^n_{i=1}Var[X_i]$.<br><br><strong>Lemma</strong> <em>The variance of a geometric random variable with parameter</em> $p$ is $(1 - p)/p^2$.<br><br>$Var[X] = \sum^n_{i = 1}Var[X_i] \le \sum^n_{i = 1}(\frac{n}{n - i + 1})^2 = n^2\sum^n_{i = 1}(\frac{1}{i})^2 \le \frac{\pi^2n^2}{6}$.<br><br>Chebyshev’s inequality $\mathrm{Pr}(|X - nH_n| \ge nH_n) \le \frac{n^2\pi^2/6}{(nH_n)^2} = O(\frac{1}{\ln^2{n}})$.</p>
+<h3 id="Application-A-Randomized-Algorithm-for-Computing-the-Median"><a href="#Application-A-Randomized-Algorithm-for-Computing-the-Median" class="headerlink" title="Application: A Randomized Algorithm for Computing the Median"></a>Application: A Randomized Algorithm for Computing the Median</h3><h4 id="The-Randomized-Linear-Time-Algorithm"><a href="#The-Randomized-Linear-Time-Algorithm" class="headerlink" title="The Randomized Linear Time Algorithm"></a>The Randomized Linear Time Algorithm</h4><div style="width:60%;margin:auto"><img src="/2020/07/06/probandcomp-3/algorithm.png" class title="algorithm"></div>
 
-<h4 id="First-Order-Logic"><a href="#First-Order-Logic" class="headerlink" title="First-Order Logic"></a>First-Order Logic</h4><p><strong><em>first-order predicate calculus</em></strong> (一阶谓词演算)<br>Each first order language $L$ includes a set of variables, the propositional connectives, $\exists$ and $\forall$, ), (, and ,. <br><br>$L$ includes: 1. <strong><em>constant</em></strong> symbols; 2. <strong><em>$n$-ary predicate</em></strong> symbols; 3. <strong><em>$n$-ary function</em></strong> symbols.<br>propositional constants are <em>true</em> and <em>false</em>.<br><strong><em>Terms</em></strong> built from constants, variables and function symbols.<br><strong><em>Atom</em></strong>: <em>true</em>, <em>false</em>, and $R(t_1, \cdots, t_n)$ where $R$ is an $n$-ary predicate symbol, $t_i$ is a term.<br>A term or formula is <em>ground</em> if it involves no variables.<br><strong><em>free</em></strong> and <strong><em>bound</em></strong>:</p>
-<ol>
-<li>variable in atom is free;</li>
-<li>$\varphi = \psi_1 \vee \psi_2$, $x$ in $\varphi$ is free if $x$ is free in $\psi_1$ or $\psi_2$;</li>
-<li>$\varphi = \exists y \psi$, $x \ne y$, $x$ in $\varphi$ is free if $x$ in $\psi$ is free, $y$ is bound. (each occurrence of $y$ is $\varphi$ that is free in $\psi$ is said to be in the <strong><em>scope</em></strong> of $\exists y$ at the beginning of $\varphi$)</li>
-</ol>
-<p>An interpretation of a first-order language $L$ is a 4-tuple $\mathcal{J} = (U, \mathcal{C, P, F})$ where $U$: nonempty set of abstract elements called the universe (of discourse), $\mathcal{C, P, F}$ : mappings. <br><br>A variable assignment for $\varphi$ is a partial funciton $\mu : \text{variables of} L \to U$.<br>Sentence $\varphi$ logically imples sentence $\psi$, denoted as $\varphi \vDash \psi$, if each interpretation that satisfies $\varphi$ alse satisfies $\psi$.</p>
+<h4 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h4><p><strong>Theorem</strong> <em>The randomized median algorithm terminates in linear time, and if it does not output FAIL then it outputs the correct median element of the input set $S$.</em><br><br>There are three “bad” events (line 6-7) such that the algorithm outputs FAIL.</p>
+<ul>
+<li>$\varepsilon_1: Y_1 = |\{r\in R \mid r \le m\}| &lt; \frac{1}{2}n^{3/4} - \sqrt{n} \Leftrightarrow l_d &gt; n/2$; (the $(\frac{1}{2}n^{3/4} - \sqrt{n})$th smallest element of $R$ must be larger than $m$)</li>
+<li>$\varepsilon_2: Y_2 = |\{r\in R \mid r \ge m\}| &lt; \frac{1}{2}n^{3/4} - \sqrt{n} \Leftrightarrow l_d &lt; n/2$;</li>
+<li>$\varepsilon_3: |C| &gt; 4n^{3/4}$.</li>
+</ul>
+<p><strong>Lemma</strong> $\mathrm{Pr}(\varepsilon_1) \le \frac{1}{4}n^{-1/4}$.<br><br>Proof: Let</p>
+<script type="math/tex; mode=display">X_i =
+\begin{cases}
+1,  & \text{if the $i$th sample is less than or equal to the median} \\
+0, & \text{otherwise}
+\end{cases}</script><p>$\mathrm{Pr}(X_i = 1) = \frac{(n - 1)/2 + 1}{n} = \frac{1}{2} + \frac{1}{2n}$.<br>The $\varepsilon_1$ is equivalent to $Y_1 = \sum^{n^{3/4}}_{i=1}X_i \le \frac{1}{2}n^{3/4} - \sqrt{n}$, that is $Y_1$ is the sum of Bernoulli trials, it is a binomial random variable with parameters $n^{3/4}$ and $1/2 + 1/2n$. Hence, $Var[Y_1] = n^{3/4}(\frac{1}{2}+\frac{1}{2n})(\frac{1}{2}-\frac{1}{2n}) &lt; \frac{1}{4}n^{3/4}$. <br><br>Applying Chebyshev’s inequality $\mathrm{Pr}(\varepsilon_1) \le \mathrm{Pr}(|Y_1 - E[Y_1]| &gt; \sqrt{n}) \le \frac{Var[Y_1]}{n} &lt; \frac{1}{4}n^{-1/4}$.</p>
+<p><strong>Lemma</strong> $\mathrm{Pr}(\varepsilon_3) \le \frac{1}{2}n^{-1/4}$.<br><br>Proof: If $\varepsilon_3$ occurs, then at least one of the following two events occurs:</p>
+<ul>
+<li>$\varepsilon_{3.1}$: at least $2n^{3/4}$ elements of $C$ are greater than the median;</li>
+<li>$\varepsilon_{3.2}$: at least $2n^{3/4}$ elements of $C$ are smaller than the median.</li>
+</ul>
+<p>If $\varepsilon_{3.1}$ occurs, it means that the order of $u$ in the sorted order of $S$ is at least $\frac{1}{2}n + 2n^{3/4}$ and thus the set $R$ has at least $\frac{1}{2}n^{3/4} - \sqrt{n}$ samples among the $\frac{1}{2}n - 2n^{3/4}$ largest elements in $S$. (如果$\varepsilon_{3.1}$发生，那就是$u$选的太大了，在中位数和$u$之间至少有$2n^{3/4}$个元素，那么在$S$中比$u$大的元素至多有$n - (\frac{1}{2}n + 2n^{3/4}) = \frac{1}{2}n - 2n^{3/4}$个，这些元素当中有至少$n^{3/4} - (\frac{1}{2}n^{3/4} + \sqrt{n}) = \frac{1}{2}n^{3/4} - \sqrt{n}$个被抽到，才会造成$u$太大了)<br><br>Let</p>
+<script type="math/tex; mode=display">X_i =
+\begin{cases}
+1,  & \text{if the $i$th sample is among the $\frac{1}{2}n - 2n^{3/4}$ largest elements in $S$} \\
+0, & \text{otherwise}
+\end{cases}</script><p>$X = \sum^{n^{3/4}}_{i=1}X_i$ is a binomial variable with parameters $n^{3/4}$ and $\frac{1}{2} - 2n^{-1/4}$. Hence, $E[X] = \frac{1}{2}n^{3/4} - 2\sqrt{n}$ and $Var[X] = n^{3/4}(\frac{1}{2} - 2n^{-1/4})(\frac{1}{2} + 2n6{-1/4})$. <br><br>Applying Chebyshev’s inequality $\mathrm{Pr}(\varepsilon_{3.1}) = \mathrm{Pr}(X \ge \frac{1}{2}n^{3/4} - \sqrt{n}) \le \mathrm{Pr}(|X - E[X]| \ge \sqrt{n}) \le \frac{Var[X]}{n} &lt; \frac{1}{4}n^{-1/4}$.</p>
+<p><strong>Theorem</strong> <em>The probability that the randomized median algorithm fails is bounded by $n^{-1/4}$.</em></p>
+<p>Expected Running Time: $T = p\times O(n) + (1 - p)\times T$, where $p = 1 - \frac{1}{n^4}$, $T = O(n)$.</p>
 
     </div>
 
@@ -253,8 +281,8 @@ If $\varphi$ is a propositional formula, then there is some formula $\psi$ equiv
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Database-Theory/" rel="tag"># Database Theory</a>
               <a href="/tags/Daily-Reading/" rel="tag"># Daily Reading</a>
+              <a href="/tags/Probability/" rel="tag"># Probability</a>
           </div>
 
         
@@ -263,13 +291,10 @@ If $\varphi$ is a propositional formula, then there is some formula $\psi$ equiv
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/07/01/kmp/" rel="prev" title="KMP Algorithm">
-      <i class="fa fa-chevron-left"></i> KMP Algorithm
+    <a href="/2020/07/04/probandcomp-2/" rel="prev" title="Probability and Computing &#58; Chapter 2 Discrete Random Variables and Expectation">
+      <i class="fa fa-chevron-left"></i> Probability and Computing &#58; Chapter 2 Discrete Random Variables and Expectation
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/07/02/probandcomp-1/" rel="next" title="Probability and Computing &#58; Chapter 1 Events and Probability">
-      Probability and Computing &#58; Chapter 1 Events and Probability <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -328,7 +353,7 @@ If $\varphi$ is a propositional formula, then there is some formula $\psi$ equiv
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-Logics"><span class="nav-number">1.</span> <span class="nav-text">2.3 Logics</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Propositional-Calculus-命题演算"><span class="nav-number">1.1.</span> <span class="nav-text">Propositional Calculus (命题演算)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#First-Order-Logic"><span class="nav-number">1.2.</span> <span class="nav-text">First-Order Logic</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-3-Moments-and-Deviations"><span class="nav-number">1.</span> <span class="nav-text">Chapter 3 Moments and Deviations</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Markov’s-Inequality"><span class="nav-number">1.1.</span> <span class="nav-text">Markov’s Inequality</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Moments-and-Variance"><span class="nav-number">1.2.</span> <span class="nav-text">Moments and Variance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chebyshev’s-Inequality"><span class="nav-number">1.3.</span> <span class="nav-text">Chebyshev’s Inequality</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Coupon-Collector’s-Problem"><span class="nav-number">1.3.1.</span> <span class="nav-text">Coupon Collector’s Problem</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Application-A-Randomized-Algorithm-for-Computing-the-Median"><span class="nav-number">1.4.</span> <span class="nav-text">Application: A Randomized Algorithm for Computing the Median</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-Randomized-Linear-Time-Algorithm"><span class="nav-number">1.4.1.</span> <span class="nav-text">The Randomized Linear Time Algorithm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Analysis"><span class="nav-number">1.4.2.</span> <span class="nav-text">Analysis</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
