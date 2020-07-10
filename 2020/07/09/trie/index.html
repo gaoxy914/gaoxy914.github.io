@@ -27,13 +27,15 @@
 <meta property="og:site_name" content="Keep Working">
 <meta property="og:description" content="TrieTrie is an efficient information reTrieval data structre (especially for string), which supports serach, insert and delete operations. Maximum number of children of a node is equal to size of alph">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2020/07/09/trie/trie.png">
 <meta property="article:published_time" content="2020-07-09T00:35:17.000Z">
-<meta property="article:modified_time" content="2020-07-10T00:34:35.829Z">
+<meta property="article:modified_time" content="2020-07-10T07:58:41.167Z">
 <meta property="article:author" content="Xiangyu Gao">
 <meta property="article:tag" content="Data Structure">
 <meta property="article:tag" content="String">
 <meta property="article:tag" content="-CPP">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/07/09/trie/trie.png">
 
 <link rel="canonical" href="http://yoursite.com/2020/07/09/trie/">
 
@@ -198,7 +200,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-10 08:34:35" itemprop="dateModified" datetime="2020-07-10T08:34:35+08:00">2020-07-10</time>
+                <time title="Modified: 2020-07-10 15:58:41" itemprop="dateModified" datetime="2020-07-10T15:58:41+08:00">2020-07-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -226,6 +228,9 @@
 
       
         <h2 id="Trie"><a href="#Trie" class="headerlink" title="Trie"></a>Trie</h2><p>Trie is an efficient information re<em>Trie</em>val data structre (especially for string), which supports serach, insert and delete operations. Maximum number of children of a node is equal to size of alphabet. Using Trie, search complexities can be brought to optimal limit (key length).</p>
+<div style="width:30%;margin:auto"><img src="/2020/07/09/trie/trie.png" class title="Trie"></div>
+
+<a id="more"></a>
 <p><strong>Advanteges</strong>:</p>
 <ol>
 <li>Insert and find strings with lower complexity $O(L)$, where $L$ represent the length of a single word.</li>
@@ -236,7 +241,6 @@
 <li>A lot of memory requirement for storing the strings.</li>
 </ol>
 <p>The final conclusion regarding tries data structure is that they are faster but require huge memory for storing the strings.</p>
-<a id="more"></a>
 <h3 id="Trie-Node"><a href="#Trie-Node" class="headerlink" title="Trie Node"></a>Trie Node</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Trie Node</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">TrieNode</span> &#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">TrieNode</span>* <span class="title">children</span>[<span class="title">ALPHABET_SIZE</span>];</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// isEndOfWord is true if the node represents end of a word</span></span><br><span class="line">    <span class="keyword">bool</span> isEndOfWord;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="Insertion"><a href="#Insertion" class="headerlink" title="Insertion"></a>Insertion</h3><p>Inserting a key into Trie is a simple approach. Every character of the input key is inserted as an individual Trie node.<br>If the input key is new or an extension of the existing key, we need to construct non-existing nodes of the key, and mark end of the word for the last node.<br>If the input key is a prefix of the existing key in the Trie, we simply mark the last node of the key as the end of a word.</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// If not present, inserts key into trie</span></span><br><span class="line"><span class="comment">// If the key is prefix of trie node, just</span></span><br><span class="line"><span class="comment">// marks leaf node</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(struct TrieNode* root, <span class="built_in">string</span> key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">TrieNode</span>* <span class="title">pCrawl</span> = <span class="title">root</span>;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; key.length(); i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> index = key[i] - <span class="string">'a'</span>;</span><br><span class="line">        <span class="keyword">if</span> (!pCrawl-&gt;children[index])</span><br><span class="line">            pCrawl-&gt;children[index] = getNode();</span><br><span class="line"></span><br><span class="line">        pCrawl = pCrawl-&gt;children[index];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// mark last node as leaf</span></span><br><span class="line">    pCrawl-&gt;isEndOfWord = <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
