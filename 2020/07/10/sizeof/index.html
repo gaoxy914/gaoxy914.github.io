@@ -20,22 +20,20 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="article">
-<meta property="og:title" content="Foundations of Databases &amp;#58; 2.2 Languages, Computability, and Complexity">
-<meta property="og:url" content="http://yoursite.com/2020/07/01/databasefoundation-2-2/index.html">
+  <meta name="description" content="C++ sizeof 关键字sizeof 是一个关键字，用于判断变量或数据结构的字节大小，使用语法如下:1sizeof(data type)Definition from msdn  The sizeof keyword gives the amount of storage, in bytes, associated with a variable or a type (including ag">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ sizeof 关键字">
+<meta property="og:url" content="http://yoursite.com/2020/07/10/sizeof/index.html">
 <meta property="og:site_name" content="Keep Working">
+<meta property="og:description" content="C++ sizeof 关键字sizeof 是一个关键字，用于判断变量或数据结构的字节大小，使用语法如下:1sizeof(data type)Definition from msdn  The sizeof keyword gives the amount of storage, in bytes, associated with a variable or a type (including ag">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/2020/07/01/databasefoundation-2-2/cover.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/01/databasefoundation-2-2/reductions.png">
-<meta property="article:published_time" content="2020-07-01T06:11:56.000Z">
-<meta property="article:modified_time" content="2020-07-04T08:52:45.762Z">
+<meta property="article:published_time" content="2020-07-10T00:35:04.000Z">
+<meta property="article:modified_time" content="2020-07-10T07:54:42.146Z">
 <meta property="article:author" content="Xiangyu Gao">
-<meta property="article:tag" content="Database Theory">
-<meta property="article:tag" content="Daily Reading">
+<meta property="article:tag" content="CPP">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/07/01/databasefoundation-2-2/cover.png">
 
-<link rel="canonical" href="http://yoursite.com/2020/07/01/databasefoundation-2-2/">
+<link rel="canonical" href="http://yoursite.com/2020/07/10/sizeof/">
 
 
 <script id="page-configurations">
@@ -48,7 +46,7 @@
   };
 </script>
 
-  <title>Foundations of Databases &#58; 2.2 Languages, Computability, and Complexity | Keep Working</title>
+  <title>C++ sizeof 关键字 | Keep Working</title>
   
 
 
@@ -168,7 +166,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/01/databasefoundation-2-2/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/10/sizeof/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/header.jpg">
@@ -181,7 +179,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Foundations of Databases &#58; 2.2 Languages, Computability, and Complexity
+          C++ sizeof 关键字
         </h1>
 
         <div class="post-meta">
@@ -190,27 +188,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2020-07-01 14:11:56" itemprop="dateCreated datePublished" datetime="2020-07-01T14:11:56+08:00">2020-07-01</time>
+              <time title="Created: 2020-07-10 08:35:04 / Modified: 15:54:42" itemprop="dateCreated datePublished" datetime="2020-07-10T08:35:04+08:00">2020-07-10</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-04 16:52:45" itemprop="dateModified" datetime="2020-07-04T16:52:45+08:00">2020-07-04</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Books/" itemprop="url" rel="index"><span itemprop="name">Books</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a>
+                  <a href="/categories/CPP/" itemprop="url" rel="index"><span itemprop="name">CPP</span></a>
                 </span>
             </span>
 
@@ -225,77 +213,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <div style="width:25%;margin:auto"><img src="/2020/07/01/databasefoundation-2-2/cover.png" class title="cover"></div>
-
+        <h2 id="C-sizeof-关键字"><a href="#C-sizeof-关键字" class="headerlink" title="C++ sizeof 关键字"></a>C++ sizeof 关键字</h2><p>sizeof 是一个关键字，用于判断变量或数据结构的字节大小，使用语法如下:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">sizeof</span>(data type)</span><br></pre></td></tr></table></figure><br>Definition from <a href="https://docs.microsoft.com/zh-cn/cpp/cpp/sizeof-operator?view=vs-2019" target="_blank" rel="noopener">msdn</a></p>
+<blockquote>
+<p>The sizeof keyword gives the amount of storage, in bytes, associated with a variable or a type (including aggregate types). This keyword returns a value of tyoe size_t.</p>
+</blockquote>
+<h3 id="sizeof-string-是多少？"><a href="#sizeof-string-是多少？" class="headerlink" title="sizeof(string) 是多少？"></a>sizeof(string) 是多少？</h3><p>string的实现在各个库中有所不同，但是在同一库中，无论string中字符串有多长，它的sizeof()是固定的，字符串所占的空间是从堆中动态分配的，与sizeof()无关，这个值只和编译器相关。</p>
 <a id="more"></a>
-<h3 id="2-2-Languages-Computability-and-Complexity"><a href="#2-2-Languages-Computability-and-Complexity" class="headerlink" title="2.2 Languages, Computability, and Complexity"></a>2.2 Languages, Computability, and Complexity</h3><p><strong><em>alphabet</em></strong> $\Sigma$,<br><strong><em>word</em></strong> over $\Sigma$ is $w = a_1,\cdots,a_n$, where $a_i \in \Sigma$,<br><strong><em>length</em></strong> $|w| = n$,<br><strong><em>concatenation</em></strong> (级联) of $u$, $v$ denoted $uv$, concatenation with itself $u^n$,<br>$\Sigma^*$ all words over $\Sigma$,<br><strong><em>language</em></strong> is a subset of $\Sigma^*$.</p>
-<h4 id="Finite-Automata"><a href="#Finite-Automata" class="headerlink" title="Finite Automata"></a>Finite Automata</h4><p><strong><em>acceptance</em></strong>, accept precisely the words that belong to some language of interest.<br>finite-state automata (fsa, 有穷状态自动机), scanning word, remembering only a bounded amount of information about what has already been scanned.<br>An fsa $M$ over $\Sigma$ is a 5-tuple $\langle S, \Sigma, \delta. s_0, F\rangle$:</p>
-<ul>
-<li>$S$ finite set of <em>states</em>;</li>
-<li>$\delta$ <em>transition function</em> $S \times \Sigma \to S$;</li>
-<li>$s_0$ *start state$;</li>
-<li>$F$ <em>accepting</em> states.</li>
+<h3 id="C-的栈空间和堆空间"><a href="#C-的栈空间和堆空间" class="headerlink" title="C++的栈空间和堆空间"></a>C++的栈空间和堆空间</h3><ol>
+<li>栈区(stack) : 由编译器自动分配释放，存放函数的参数值，局部变量的值等，其操作方式类似于数据结构的栈。</li>
+<li>堆区(heap) : 一般是由程序员分配释放，若程序员不释放的话，程序结束时可能由OS回收，值得注意的是它与数据结构的堆时两回事，分配方式类似于数据结构的链表。</li>
+<li>全局区(static) : 也叫静态数据内存空间，存储全局变量和静态变量，全局变量和静态变量的存储是在一起的，初始化的全局变量和静态变量放在一块区域，没有初始化的在相邻的另一块区域，程序结束后由系统释放。</li>
+<li>文字常量区 : 常量字符串存放的区域，程序结束后由系统释放。</li>
+<li>程序代码区 : 存放函数提的二进制代码。</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//main.cpp</span></span><br><span class="line"><span class="keyword">int</span> a = <span class="number">0</span>;      <span class="comment">//全局初始化区</span></span><br><span class="line"><span class="keyword">char</span> *p1;       <span class="comment">//全局未初始化区</span></span><br><span class="line">main() &#123;</span><br><span class="line"><span class="keyword">int</span> b;              <span class="comment">//栈</span></span><br><span class="line"><span class="keyword">char</span> s[] = <span class="string">"abc"</span>;   <span class="comment">//栈</span></span><br><span class="line"><span class="keyword">char</span> *p2;           <span class="comment">//栈</span></span><br><span class="line"><span class="keyword">char</span> *p3 = <span class="string">"123456"</span>;    <span class="comment">//123456\0在常量区，p3在栈上。</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> c =<span class="number">0</span>;        <span class="comment">//全局（静态）初始化区</span></span><br><span class="line">p1 = (<span class="keyword">char</span> *)<span class="built_in">malloc</span>(<span class="number">10</span>);</span><br><span class="line">p2 = (<span class="keyword">char</span> *)<span class="built_in">malloc</span>(<span class="number">20</span>);</span><br><span class="line"><span class="comment">//分配得来得10和20字节的区域就在堆区。</span></span><br><span class="line"><span class="built_in">strcpy</span>(p1, <span class="string">"123456"</span>);  <span class="comment">//123456\0放在常量区，编译器可能会将它与p1所指向的"123456"优化成一个地方。 </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="堆和栈的区别"><a href="#堆和栈的区别" class="headerlink" title="堆和栈的区别"></a>堆和栈的区别</h4><ul>
+<li>内存分配方式不同</li>
+<li>申请和响应不同：<ol>
+<li>申请方式：<br>栈：由系统自动分配。<br>堆：需要程序员自己申请(new delete)。</li>
+<li>申请后系统的响应：<br>栈：只要栈的剩余空间大于所申请的空间，系统将为程序提供内存，否则将报一场提示栈溢出。<br>堆：首先应该知道操作系统有一个记录内存地址的链表，当系统收到程序的申请时，会遍历该链表，寻找第一个空间大于所申请的空间的堆结点，然后将该结点从空闲结点链表中删除，并将该结点的空间分配给程序。另外，对于大多数系统，会在这块内存空间中的首地址处记录本次分配的大小，这样代码中的delete或free语句就能够正确释放本内存空间。另外，由于找到的堆结点的大小不一定正好等于申请的大小，系统会将多余的那部分重新放入空闲链表中。</li>
+<li>申请的大小限制不同：<br>栈：在Windows吓，栈是向低地址扩展的数据结构，是一块连续的内存区域，栈顶的地址和栈的最大容量是系统预先规定好的，能从栈获得的空间较小。<br>堆：堆是向高地址扩展的数据结构，是不连续的内存区域，这是由于系统由链表在存储空闲内存地址，自然堆就是不连续的内存区域，且链表的遍历也是从低地址向高地址遍历的，堆的大小受限于计算机系统的有效虚拟内存空间，由此空间，堆获得的空间比较灵活，也比较大。</li>
+<li>申请的效率不同：<br>栈：栈由系统自动分配，速度快，但是程序员无法控制。<br>堆：堆是由程序员自己分配，速度较慢，容易产生碎片，不过使用方便。</li>
+<li>对合栈的存储内容不同：<br>栈：在函数调用时，第一个进栈的是主函数中函数调用后的下一条指令的地址，然后是函数的各个参数，在大多数的C编译器中，参数是从右往左入栈的，当本次函数调用结束后，局部变量先出栈，然后是参数，最后是栈顶指针指向最开始存的地址，也就是主函数的下一条指令。<br>堆：一般是在堆的头部用一个字节存放堆的大小，具体内容由程序员安排。</li>
+</ol>
+</li>
 </ul>
-<p>The fsa is only <strong>ALLOWED TO MOVE RIGHT</strong>.<br>A language accepted by some fsa is called a <strong><em>regular language</em></strong>.</p>
-<table>
-<tr>
-<td bgcolor="#CAE1FF">
-<b>Lemma</b>(Pumping Lemma)
-For any regular language $L$, there exists an integer $n$ such that for all $x \in L$ with $|x| \ge n$, there exists $u, v, w \in \Sigma^\star$ such that $x = uvw$, and
-<ol>
-<li> $|uv| \le n$, </li>
-<li> $|v| \ge 1$, </li>
-<li> for all $i \ge 0 : uv^iw \in L$. </li>
-</ol>
-</td>
-</tr>
-</table>
-
-<p>For example, Let us prove $L = \{0^n1^n \mid n \ge 0\}$ is irregular using Pumping Lemma.<br><br>Assume that $L$ is regular, then by Pumping Lemma the above given rules follow.<br><br>Now let $x \in L$ and $|x| \ge n$. So by Pumping Lemma, there exists $u, v, w$ such that $x = 0^n1^n = uvw$ with $|uv| \le n$ and $|v| \ge 1$.<br>So $u = 0^a, v = 0^b, w = 0^c1^n$ where $a + b \le n, b \ge 1, c \ge 0, a + b + c = n$.<br><br>Then if $i = 0$, $uv^0w = uw = 0^a0^c1^n = 0^{a+c}1^n \notin L$, since $a + c \ne n$.</p>
-<p>A regular expression over $\Sigma$ is wrriten using the symbols in $\Sigma$ and the operations concatenation, * and +.<br><br>A language $L$ is regular iff it can be specified by a regular expression.<br><br>Nondeterministic fsa (nfsa) accept the same set of language as fsa. However, the number of states in the equivalent deterministic fsa may be exponential in the number of states of the nondeterministic one.</p>
-<h4 id="Turing-Machines-and-Computability"><a href="#Turing-Machines-and-Computability" class="headerlink" title="Turing Machines and Computability"></a>Turing Machines and Computability</h4><p>A language is <strong><em>recursively enumerable</em></strong> (r.e.) iff it is $L(M)$ for some TM $M$. It means that there is an algorithm that is guaranteed to say eventually yes on input $w$ if $w \in L$ but may run forever if $w \notin L$ (if it stops, it says no).<br><br>$L$ is recursive means that there is an algorithm that always decides in finite time whether a given word is in $L$. If $L = L(M)$ and $M$ always halts, $L$ is <strong><em>recursive</em></strong>. A language whose complement is r.e. is called <strong><em>co-r.e.</em></strong>.<br>Some facts:</p>
-<ol>
-<li>If $L$ is r.e. and co-r.e., then it is recursive.</li>
-<li>$L$ is r.e. iff it is the domain of a computable function.</li>
-<li>$L$ is r.e. iff it is the range of a computable function.</li>
-<li>$L$ is recursive iff it is the range of a computable nondecreasing $(|f(w)| \ge |w|)$ function.</li>
-</ol>
-<p>TIME($Ploy$) PTIME, SPACE($Poly$) PSPACE.<br><br><strong>Membership in the class PTIME is often regarded as synonymous to tractability.</strong><br><br>The set of recursive languages accepted by some NTM using time bounded by a polynomial is NP, space bounded by a polynomial is NPSPACE.<br><strong>Savitch’s theorem</strong> states that <u>PSPACE = NPSPACE</u><br>$L$ is reducible to $K$ if there is a computable mapping $f$ such that for each $w, w \in L$ iff $f(w) \in K$.<br>The complexity of the reduction function is lower than that for a class.<br>A recursive language is complete in $C$ by $C’$ reductions if for each $L \in C$ there is a function $f$ in $C’$ reducing $L$ to $K$.</p>
-<div style="width:50%;margin:auto"><img src="/2020/07/01/databasefoundation-2-2/reductions.png" class title="usual reductions in some complexity classes."></div>
-
-<p>NP-COMPLETE problem: 3-SAT<br>PSPACE-COMPLETE problem: QBF<br>PTIME-COMPLETE problem: CFG emptiness</p>
-<h4 id="Context-Free-Grammars"><a href="#Context-Free-Grammars" class="headerlink" title="Context-Free Grammars"></a>Context-Free Grammars</h4><p>A CFG is a 4-tuple $\langle N, \Sigma, S, P\rangle$, where:</p>
-<ul>
-<li>$N$ a finite set of <em>nonterminal symbols</em>;</li>
-<li>$\Sigma$ a finite alphabet of <em>terminal symbols</em>, disjoint from $N$;</li>
-<li>$S$ a distinguished symbol of $N$, <em>start symbol</em>;</li>
-<li>$P$ a finite set of <em>productions</em> of the form $\xi \to w$, where $\xi \in N$ and $w \in (N \cup \Sigma)^*$.</li>
-</ul>
-<p>The language accepted by $G$: $L(G) = \{w \mid w \in \Sigma^*, S \Rightarrow^*(\text{transitive closure of} \Rightarrow) w\}.$</p>
-<table>
-<tr>
-<td bgcolor="#CAE1FF">
-The specification power of CFGs lies between that of fsa's and that of TMs.
-All regular languages are context-free and all context-free languages are recursive.
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td bgcolor="#CAE1FF">
-<b>Lemma</b>(Pumping Lemma)
-For any $L$ in CFL, there exists an integer $n$ such that for all $x \in L$ with $|x| \ge n$, there exists $u, v, w, x, y \in \Sigma^\star$ such that $x = uvwxy$ and
-<ol>
-<li> $|vwx| \le n$, </li>
-<li> $|vx| \ge 1$, </li>
-<li> for all $i \ge 0 : uv^iwx^iy \in L$. </li>
-</ol>
-</td>
-</tr>
-</table>
-
-<p>Some questions about CFGs:<br>Decidable: emptiness [is $L(G)$ empty] finiteness [if $L(G)$ finite]<br><br>Undecidable: containment [is it true that $L(G_1) \subseteq L(G_2)$] equality [is it true that $L(G_1) = L(G_2)$]</p>
 
     </div>
 
@@ -305,8 +247,7 @@ For any $L$ in CFL, there exists an integer $n$ such that for all $x \in L$ with
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Database-Theory/" rel="tag"># Database Theory</a>
-              <a href="/tags/Daily-Reading/" rel="tag"># Daily Reading</a>
+              <a href="/tags/CPP/" rel="tag"># CPP</a>
           </div>
 
         
@@ -315,13 +256,10 @@ For any $L$ in CFL, there exists an integer $n$ such that for all $x \in L$ with
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/07/01/databasefoundation-2/" rel="prev" title="Foundations of Databases &#58; 2 Theoretical Background">
-      <i class="fa fa-chevron-left"></i> Foundations of Databases &#58; 2 Theoretical Background
+    <a href="/2020/07/09/trie/" rel="prev" title="Trie">
+      <i class="fa fa-chevron-left"></i> Trie
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/07/01/kmp/" rel="next" title="KMP Algorithm">
-      KMP Algorithm <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -380,7 +318,7 @@ For any $L$ in CFL, there exists an integer $n$ such that for all $x \in L$ with
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-Languages-Computability-and-Complexity"><span class="nav-number">1.</span> <span class="nav-text">2.2 Languages, Computability, and Complexity</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Finite-Automata"><span class="nav-number">1.1.</span> <span class="nav-text">Finite Automata</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Turing-Machines-and-Computability"><span class="nav-number">1.2.</span> <span class="nav-text">Turing Machines and Computability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Context-Free-Grammars"><span class="nav-number">1.3.</span> <span class="nav-text">Context-Free Grammars</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#C-sizeof-关键字"><span class="nav-number">1.</span> <span class="nav-text">C++ sizeof 关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sizeof-string-是多少？"><span class="nav-number">1.1.</span> <span class="nav-text">sizeof(string) 是多少？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-的栈空间和堆空间"><span class="nav-number">1.2.</span> <span class="nav-text">C++的栈空间和堆空间</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#堆和栈的区别"><span class="nav-number">1.2.1.</span> <span class="nav-text">堆和栈的区别</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

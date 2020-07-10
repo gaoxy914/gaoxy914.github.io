@@ -20,35 +20,30 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="article">
-<meta property="og:title" content="Foundations of Databases &amp;#58; 2.2 Languages, Computability, and Complexity">
-<meta property="og:url" content="http://yoursite.com/2020/07/01/databasefoundation-2-2/index.html">
+  <meta name="description" content="我秃了，但是也变强了。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Keep Working">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="Keep Working">
+<meta property="og:description" content="我秃了，但是也变强了。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/2020/07/01/databasefoundation-2-2/cover.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/01/databasefoundation-2-2/reductions.png">
-<meta property="article:published_time" content="2020-07-01T06:11:56.000Z">
-<meta property="article:modified_time" content="2020-07-04T08:52:45.762Z">
 <meta property="article:author" content="Xiangyu Gao">
-<meta property="article:tag" content="Database Theory">
-<meta property="article:tag" content="Daily Reading">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/07/01/databasefoundation-2-2/cover.png">
 
-<link rel="canonical" href="http://yoursite.com/2020/07/01/databasefoundation-2-2/">
+<link rel="canonical" href="http://yoursite.com/page/2/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : false,
-    isPost : true,
+    isHome : true,
+    isPost : false,
     lang   : 'en'
   };
 </script>
 
-  <title>Foundations of Databases &#58; 2.2 Languages, Computability, and Complexity | Keep Working</title>
+  <title>Keep Working</title>
   
 
 
@@ -161,14 +156,13 @@
         <div class="content-wrap">
           
 
-          <div class="content post posts-expand">
+          <div class="content index posts-expand">
             
-
-    
+      
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/01/databasefoundation-2-2/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/01/databasefoundation-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/header.jpg">
@@ -180,9 +174,10 @@
       <meta itemprop="name" content="Keep Working">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          Foundations of Databases &#58; 2.2 Languages, Computability, and Complexity
-        </h1>
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/01/databasefoundation-2/" class="post-title-link" itemprop="url">Foundations of Databases &#58; 2 Theoretical Background</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -191,14 +186,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-07-01 14:11:56" itemprop="dateCreated datePublished" datetime="2020-07-01T14:11:56+08:00">2020-07-01</time>
+              <time title="Created: 2020-07-01 08:06:34" itemprop="dateCreated datePublished" datetime="2020-07-01T08:06:34+08:00">2020-07-01</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-04 16:52:45" itemprop="dateModified" datetime="2020-07-04T16:52:45+08:00">2020-07-04</time>
+                <time title="Modified: 2020-07-04 16:51:30" itemprop="dateModified" datetime="2020-07-04T16:51:30+08:00">2020-07-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -225,110 +220,203 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <div style="width:25%;margin:auto"><img src="/2020/07/01/databasefoundation-2-2/cover.png" class title="cover"></div>
-
-<a id="more"></a>
-<h3 id="2-2-Languages-Computability-and-Complexity"><a href="#2-2-Languages-Computability-and-Complexity" class="headerlink" title="2.2 Languages, Computability, and Complexity"></a>2.2 Languages, Computability, and Complexity</h3><p><strong><em>alphabet</em></strong> $\Sigma$,<br><strong><em>word</em></strong> over $\Sigma$ is $w = a_1,\cdots,a_n$, where $a_i \in \Sigma$,<br><strong><em>length</em></strong> $|w| = n$,<br><strong><em>concatenation</em></strong> (级联) of $u$, $v$ denoted $uv$, concatenation with itself $u^n$,<br>$\Sigma^*$ all words over $\Sigma$,<br><strong><em>language</em></strong> is a subset of $\Sigma^*$.</p>
-<h4 id="Finite-Automata"><a href="#Finite-Automata" class="headerlink" title="Finite Automata"></a>Finite Automata</h4><p><strong><em>acceptance</em></strong>, accept precisely the words that belong to some language of interest.<br>finite-state automata (fsa, 有穷状态自动机), scanning word, remembering only a bounded amount of information about what has already been scanned.<br>An fsa $M$ over $\Sigma$ is a 5-tuple $\langle S, \Sigma, \delta. s_0, F\rangle$:</p>
-<ul>
-<li>$S$ finite set of <em>states</em>;</li>
-<li>$\delta$ <em>transition function</em> $S \times \Sigma \to S$;</li>
-<li>$s_0$ *start state$;</li>
-<li>$F$ <em>accepting</em> states.</li>
-</ul>
-<p>The fsa is only <strong>ALLOWED TO MOVE RIGHT</strong>.<br>A language accepted by some fsa is called a <strong><em>regular language</em></strong>.</p>
-<table>
-<tr>
-<td bgcolor="#CAE1FF">
-<b>Lemma</b>(Pumping Lemma)
-For any regular language $L$, there exists an integer $n$ such that for all $x \in L$ with $|x| \ge n$, there exists $u, v, w \in \Sigma^\star$ such that $x = uvw$, and
-<ol>
-<li> $|uv| \le n$, </li>
-<li> $|v| \ge 1$, </li>
-<li> for all $i \ge 0 : uv^iw \in L$. </li>
-</ol>
-</td>
-</tr>
-</table>
-
-<p>For example, Let us prove $L = \{0^n1^n \mid n \ge 0\}$ is irregular using Pumping Lemma.<br><br>Assume that $L$ is regular, then by Pumping Lemma the above given rules follow.<br><br>Now let $x \in L$ and $|x| \ge n$. So by Pumping Lemma, there exists $u, v, w$ such that $x = 0^n1^n = uvw$ with $|uv| \le n$ and $|v| \ge 1$.<br>So $u = 0^a, v = 0^b, w = 0^c1^n$ where $a + b \le n, b \ge 1, c \ge 0, a + b + c = n$.<br><br>Then if $i = 0$, $uv^0w = uw = 0^a0^c1^n = 0^{a+c}1^n \notin L$, since $a + c \ne n$.</p>
-<p>A regular expression over $\Sigma$ is wrriten using the symbols in $\Sigma$ and the operations concatenation, * and +.<br><br>A language $L$ is regular iff it can be specified by a regular expression.<br><br>Nondeterministic fsa (nfsa) accept the same set of language as fsa. However, the number of states in the equivalent deterministic fsa may be exponential in the number of states of the nondeterministic one.</p>
-<h4 id="Turing-Machines-and-Computability"><a href="#Turing-Machines-and-Computability" class="headerlink" title="Turing Machines and Computability"></a>Turing Machines and Computability</h4><p>A language is <strong><em>recursively enumerable</em></strong> (r.e.) iff it is $L(M)$ for some TM $M$. It means that there is an algorithm that is guaranteed to say eventually yes on input $w$ if $w \in L$ but may run forever if $w \notin L$ (if it stops, it says no).<br><br>$L$ is recursive means that there is an algorithm that always decides in finite time whether a given word is in $L$. If $L = L(M)$ and $M$ always halts, $L$ is <strong><em>recursive</em></strong>. A language whose complement is r.e. is called <strong><em>co-r.e.</em></strong>.<br>Some facts:</p>
-<ol>
-<li>If $L$ is r.e. and co-r.e., then it is recursive.</li>
-<li>$L$ is r.e. iff it is the domain of a computable function.</li>
-<li>$L$ is r.e. iff it is the range of a computable function.</li>
-<li>$L$ is recursive iff it is the range of a computable nondecreasing $(|f(w)| \ge |w|)$ function.</li>
-</ol>
-<p>TIME($Ploy$) PTIME, SPACE($Poly$) PSPACE.<br><br><strong>Membership in the class PTIME is often regarded as synonymous to tractability.</strong><br><br>The set of recursive languages accepted by some NTM using time bounded by a polynomial is NP, space bounded by a polynomial is NPSPACE.<br><strong>Savitch’s theorem</strong> states that <u>PSPACE = NPSPACE</u><br>$L$ is reducible to $K$ if there is a computable mapping $f$ such that for each $w, w \in L$ iff $f(w) \in K$.<br>The complexity of the reduction function is lower than that for a class.<br>A recursive language is complete in $C$ by $C’$ reductions if for each $L \in C$ there is a function $f$ in $C’$ reducing $L$ to $K$.</p>
-<div style="width:50%;margin:auto"><img src="/2020/07/01/databasefoundation-2-2/reductions.png" class title="usual reductions in some complexity classes."></div>
-
-<p>NP-COMPLETE problem: 3-SAT<br>PSPACE-COMPLETE problem: QBF<br>PTIME-COMPLETE problem: CFG emptiness</p>
-<h4 id="Context-Free-Grammars"><a href="#Context-Free-Grammars" class="headerlink" title="Context-Free Grammars"></a>Context-Free Grammars</h4><p>A CFG is a 4-tuple $\langle N, \Sigma, S, P\rangle$, where:</p>
-<ul>
-<li>$N$ a finite set of <em>nonterminal symbols</em>;</li>
-<li>$\Sigma$ a finite alphabet of <em>terminal symbols</em>, disjoint from $N$;</li>
-<li>$S$ a distinguished symbol of $N$, <em>start symbol</em>;</li>
-<li>$P$ a finite set of <em>productions</em> of the form $\xi \to w$, where $\xi \in N$ and $w \in (N \cup \Sigma)^*$.</li>
-</ul>
-<p>The language accepted by $G$: $L(G) = \{w \mid w \in \Sigma^*, S \Rightarrow^*(\text{transitive closure of} \Rightarrow) w\}.$</p>
-<table>
-<tr>
-<td bgcolor="#CAE1FF">
-The specification power of CFGs lies between that of fsa's and that of TMs.
-All regular languages are context-free and all context-free languages are recursive.
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td bgcolor="#CAE1FF">
-<b>Lemma</b>(Pumping Lemma)
-For any $L$ in CFL, there exists an integer $n$ such that for all $x \in L$ with $|x| \ge n$, there exists $u, v, w, x, y \in \Sigma^\star$ such that $x = uvwxy$ and
-<ol>
-<li> $|vwx| \le n$, </li>
-<li> $|vx| \ge 1$, </li>
-<li> for all $i \ge 0 : uv^iwx^iy \in L$. </li>
-</ol>
-</td>
-</tr>
-</table>
-
-<p>Some questions about CFGs:<br>Decidable: emptiness [is $L(G)$ empty] finiteness [if $L(G)$ finite]<br><br>Undecidable: containment [is it true that $L(G_1) \subseteq L(G_2)$] equality [is it true that $L(G_1) = L(G_2)$]</p>
-
+          <div style="width:25%;margin:auto"><img src="/2020/07/01/databasefoundation-2/cover.png" class title="cover"></div>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/07/01/databasefoundation-2/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
     </div>
 
     
     
     
-
       <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/Database-Theory/" rel="tag"># Database Theory</a>
-              <a href="/tags/Daily-Reading/" rel="tag"># Daily Reading</a>
-          </div>
-
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2020/07/01/databasefoundation-2/" rel="prev" title="Foundations of Databases &#58; 2 Theoretical Background">
-      <i class="fa fa-chevron-left"></i> Foundations of Databases &#58; 2 Theoretical Background
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/07/01/kmp/" rel="next" title="KMP Algorithm">
-      KMP Algorithm <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
+        <div class="post-eof"></div>
       </footer>
-    
   </article>
   
   
   
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/30/databasefoundation-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="Xiangyu Gao">
+      <meta itemprop="description" content="我秃了，但是也变强了。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keep Working">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/30/databasefoundation-1/" class="post-title-link" itemprop="url">Foundations of Databases &#58; 1 Database Systems</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-06-30 18:37:19" itemprop="dateCreated datePublished" datetime="2020-06-30T18:37:19+08:00">2020-06-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-04 16:51:16" itemprop="dateModified" datetime="2020-07-04T16:51:16+08:00">2020-07-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Books/" itemprop="url" rel="index"><span itemprop="name">Books</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <div style="width:25%;margin:auto"><img src="/2020/06/30/databasefoundation-1/cover.png" class title="cover"></div>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/06/30/databasefoundation-1/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/28/manacher/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="Xiangyu Gao">
+      <meta itemprop="description" content="我秃了，但是也变强了。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keep Working">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/28/manacher/" class="post-title-link" itemprop="url">Manacher Algorithm</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-06-28 09:16:52" itemprop="dateCreated datePublished" datetime="2020-06-28T09:16:52+08:00">2020-06-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-01 22:13:20" itemprop="dateModified" datetime="2020-07-01T22:13:20+08:00">2020-07-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>To calculate the longest palindrome substring.</p>
+<h4 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h4><ul>
+<li>preprocessing<br>insert ‘#’ between adjacent characters in the string, e.g., babad $\rightarrow$ #b#a#b#a#d#<br><br><strong>remark</strong>: after preprocessing, the length of the string after and the length of the palindrome substring is odd.</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/06/28/manacher/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
 
 
 
@@ -380,7 +468,6 @@ For any $L$ in CFL, there exists an integer $n$ such that for all $x \in L$ with
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-Languages-Computability-and-Complexity"><span class="nav-number">1.</span> <span class="nav-text">2.2 Languages, Computability, and Complexity</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Finite-Automata"><span class="nav-number">1.1.</span> <span class="nav-text">Finite Automata</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Turing-Machines-and-Computability"><span class="nav-number">1.2.</span> <span class="nav-text">Turing Machines and Computability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Context-Free-Grammars"><span class="nav-number">1.3.</span> <span class="nav-text">Context-Free Grammars</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
