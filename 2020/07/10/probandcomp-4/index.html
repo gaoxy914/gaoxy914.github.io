@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open Sans:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta property="og:type" content="article">
+<meta property="og:title" content="Probability and Computing &amp;#58; Chapter 4 Chernoff Bounds">
+<meta property="og:url" content="http://yoursite.com/2020/07/10/probandcomp-4/index.html">
+<meta property="og:site_name" content="Keep Working">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2020/07/10/probandcomp-4/cover.png">
+<meta property="og:image" content="http://yoursite.com/2020/07/10/probandcomp-4/setbalancing.png">
+<meta property="og:image" content="http://yoursite.com/2020/07/10/probandcomp-4/hypercube.png">
+<meta property="article:published_time" content="2020-07-10T08:52:22.000Z">
+<meta property="article:modified_time" content="2020-07-15T11:02:13.589Z">
+<meta property="article:author" content="Xiangyu Gao">
+<meta property="article:tag" content="Daily Reading">
+<meta property="article:tag" content="Probability">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/07/10/probandcomp-4/cover.png">
+
+<link rel="canonical" href="http://yoursite.com/2020/07/10/probandcomp-4/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Probability and Computing &#58; Chapter 4 Chernoff Bounds | Keep Working</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Keep Working</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/10/probandcomp-4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="Xiangyu Gao">
+      <meta itemprop="description" content="我秃了，但是也变强了。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keep Working">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Probability and Computing &#58; Chapter 4 Chernoff Bounds
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-07-10 16:52:22" itemprop="dateCreated datePublished" datetime="2020-07-10T16:52:22+08:00">2020-07-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-15 19:02:13" itemprop="dateModified" datetime="2020-07-15T19:02:13+08:00">2020-07-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Books/" itemprop="url" rel="index"><span itemprop="name">Books</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Probability/" itemprop="url" rel="index"><span itemprop="name">Probability</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <div style="width:25%;margin:auto"><img src="/2020/07/10/probandcomp-4/cover.png" class title="cover"></div>
+
+<a id="more"></a>
+<h2 id="Chapter-4-Chernoff-Bounds"><a href="#Chapter-4-Chernoff-Bounds" class="headerlink" title="Chapter 4 Chernoff Bounds"></a>Chapter 4 Chernoff Bounds</h2><h3 id="Moment-Generating-Functions-矩母函数"><a href="#Moment-Generating-Functions-矩母函数" class="headerlink" title="Moment Generating Functions (矩母函数)"></a>Moment Generating Functions (矩母函数)</h3><p><strong>Definition</strong> The moment generating function of a random variable $X$ is</p>
+<script type="math/tex; mode=display">M_X(t) = E[e^{tX}].</script><p>Focus on the properties of this function in the neighborhood of zero.</p>
+<p><strong>Theorem</strong> <em>Let $X$ be a random variable with moment generating function $M_X(t)$. Under the assumption that exchanging the expectation and differentiation operands is legitimate, for all $n &gt; 1$ we then have</em></p>
+<script type="math/tex; mode=display">E[X^n] = M_X^{(n)}(0),</script><p><em>where $M_X^{(n)}(0)$ is the $n$th derivative of $M_X(t)$ evaluated at $t = 0$.</em></p>
+<p>For example, $X$ is a geometric random variable with parameter $p$, then </p>
+<script type="math/tex; mode=display">M_X(t) = E[e^{tX}] = \sum^{\infty}_{k=1}(1 - p)^{k-1}pe^{tk} = \frac{p}{1 - p}((1 - (1 - p)e^t)^{-1} - 1).</script><p>It follows that,</p>
+<script type="math/tex; mode=display">M^{(1)}_X(t) = p(1 - (1 - p)e^t)^{-2}e^t</script><script type="math/tex; mode=display">M^{(2)}_X(t) = 2p(1 - p)(1 - (1-p)e^t)^{-3}e^{2t} + p(1-(1-p)e^t)^{-2}e^t.</script><p>And using the above Theorem gives $E[X] = 1/p$, $E[X^2] = (2 - p)/p^2$.</p>
+<p><strong>Theorem</strong> <em>Let $X$ and $Y$ be two random variables. If</em></p>
+<script type="math/tex; mode=display">m_X(t) = M_Y(t)</script><p><em>for all $t \in (-\delta, \delta)$ for some $\delta &gt; 0$, then $X$ and $Y$ have the same distribution.</em></p>
+<p><strong>Theorem</strong> <em>If $X$ and $Y$ are independent random variables, then</em></p>
+<script type="math/tex; mode=display">M_{X+Y}(t) = M_X(t)M_Y(t).</script><h3 id="Deriving-Chernoff-Bounds"><a href="#Deriving-Chernoff-Bounds" class="headerlink" title="Deriving Chernoff Bounds"></a>Deriving Chernoff Bounds</h3><p>The Chernoff bound for a random variable $X$ is obtained by applying Markov’s inequality to $e^{tX}$ for some well-chosen value $t$.</p>
+<p>For any $t &gt; 0$, $\mathrm{Pr}(X \ge a) = \mathrm{Pr}(e^{tX} \ge e^{ta}) \le \frac{E[e^{tX}]}{e^{ta}} \le \min_{t &gt; 0}\frac{E[e^{tX}]}{e^{ta}}$.<br>Similarly, for any $t &lt; 0$, $\mathrm{Pr} \le \min_{t &lt; 0}\frac{E[e^{tX}]}{e^{ta}}$.</p>
+<h4 id="Chernoff-Bounds-for-the-Sum-of-Possion-Trials-most-commonly-used-version"><a href="#Chernoff-Bounds-for-the-Sum-of-Possion-Trials-most-commonly-used-version" class="headerlink" title="Chernoff Bounds for the Sum of Possion Trials (most commonly used version)"></a>Chernoff Bounds for the Sum of Possion Trials (most commonly used version)</h4><p><strong>Theorem</strong> <em>Let $X_1, \cdots, X_n$ be independent Poisson trials such that $\mathrm{Pr}(X_i) = p_i$. Let $X = \sum^n_{i = 1}X_i$ and $\mu = E[X]$. Then the following Chernoff bounds hold:</em></p>
+<ol>
+<li><em>for any $\delta &gt; 0$,</em><script type="math/tex; mode=display">\mathrm{Pr}(X \ge (1 + \delta)\mu) < (\frac{e^\delta}{(1+\delta)^{(1+\delta)}})^\mu;</script></li>
+<li><em>for $0 &lt; \delta \le 1$,</em><script type="math/tex; mode=display">\mathrm{Pr}(X \ge (1+\delta)\mu) \le e^{-\mu\delta^2/3};</script></li>
+<li><em>for $R \ge 6\mu$,</em><script type="math/tex; mode=display">\mathrm{Pr}(X \ge R) \le 2^{-R}.</script></li>
+</ol>
+<p>Proof: $M_{X_i}(t) = E[e^{tX_i}] = p_ie^t + (1-p_i) \le e^{p_i(e^t - 1)}$. <br><br>$M_X(t) = \Pi^n_{i=1}M_{X_i}(t) \le \Pi^n_{i=1}e^{p_i(e^t - 1)} = exp\{\sum^n_{i=1}p_i(e^t - 1)\} = e^{(e^t-1)}\mu$.<br><br>Then applying Markov’s inequality and set some special $t$.</p>
+<p><strong>Theorem</strong> <em>Let $X_1, \cdots, X_n$ be independent Poisson trials such that $\mathrm{Pr}(X_i) = p_i$. Let $X = \sum^n_{i = 1}X_i$ and $\mu = E[X]$. Then, for $0 &lt; \delta &lt; 1$</em></p>
+<ol>
+<li><script type="math/tex; mode=display">\mathrm{Pr}(X \le (1 - \delta)\mu) \le (\frac{e^{-\delta}}{(1-\delta)^{(1-\delta)}})^\mu;</script></li>
+<li><script type="math/tex; mode=display">\mathrm{Pr}(X \le (1-\delta)\mu) \le e^{-\mu\delta^2/2}.</script></li>
+</ol>
+<p><strong>Corollary</strong> <em>Let $X_1, \cdots, X_n$ be independent Poisson trials such that $\mathrm{Pr}(X_i) = p_i$. Let $X = \sum^n_{i = 1}X_i$ and $\mu = E[X]$. For $0 &lt; \delta &lt; 1$</em></p>
+<script type="math/tex; mode=display">\mathrm{Pr}(|X - \mu| \ge \delta\mu) \le 2e^{-\mu\delta^2/3}.</script><h4 id="Application-Estimating-a-Parameter"><a href="#Application-Estimating-a-Parameter" class="headerlink" title="Application: Estimating a Parameter"></a>Application: Estimating a Parameter</h4><p><strong>Definition</strong> A $1 - \gamma$ confidence interval for a parameter $p$ is an interval $[\tilde{p} - \delta, \tilde{p} + \delta]$ such that</p>
+<script type="math/tex; mode=display">\mathrm{Pr}(p \in [\tilde{p} - \delta, \tilde{p} + \delta]) \ge 1 - \gamma.</script><p>If $p \notin [\tilde{p} - \delta, \tilde{p} + \delta], then we have one of the following two events:</p>
+<ol>
+<li>if $p &lt; \tilde{p} - \delta$, then $X = n \tilde{p} &gt; n(p + \delta) = E[X] (1 + \delta /p)$;</li>
+<li>If $p &gt; \tilde{p} + \delta$, then $n\tilde{p} &lt; n(p - \delta) = E[X] (1 - \delta / p)$.</li>
+</ol>
+<p>Then applying Chernoff bounds yileds that</p>
+<script type="math/tex; mode=display">\mathrm{Pr}(p \notin [\tilde{p} - \delta, \tilde{p} + \delta]) < e^{-n\delta^2/2} + e^{-n\delta^2/3}.</script><h3 id="Better-Bounds-for-Special-Cases"><a href="#Better-Bounds-for-Special-Cases" class="headerlink" title="Better Bounds for Special Cases"></a>Better Bounds for Special Cases</h3><p><strong>Theorem</strong> <em>Let $X_1, \cdots, X_n$ be independent random variables with</em></p>
+<script type="math/tex; mode=display">\mathrm{Pr}(X_i = 1) = \mathrm{Pr}(X_1 = -1) = \frac{1}{2}.</script><p><em>Let $X = \sum^n_{i = 1}X_i$. For any $a &gt; 0$,</em></p>
+<script type="math/tex; mode=display">\mathrm{Pr}(X \ge a) \le e^{-a^2/2n}.</script><p>by symmetry, we also have</p>
+<script type="math/tex; mode=display">\mathrm{Pr}(X \le -a) \le e^{-a^2/2n}.</script><p><strong>Corollary</strong> <em>Let $X_1, \cdots, X_n$ be independent random variables with</em></p>
+<script type="math/tex; mode=display">\mathrm{Pr}(X_i = 1) = \mathrm{Pr}(X_1 = -1) = \frac{1}{2}.</script><p><em>Let $X = \sum^n_{i = 1}X_i$. For any $a &gt; 0$,</em></p>
+<script type="math/tex; mode=display">\mathrm{Pr}(|X| \ge a) \le 2e^{-a^2/2n}.</script><p>Let $Y_i = (X_i + 1)/2$, from the above theorem:</p>
+<p><strong>Corollary</strong> <em>Let $Y_1, \cdots, Y_n$ be independent random variables with</em></p>
+<script type="math/tex; mode=display">\mathrm{Pr}(Y_i = 1) = \mathrm{Pr}(Y_i = 0) = \frac{1}{2}.</script><p>Let $Y = \sum^n_{i = 1}Y_i$ and $\mu = E[Y] = n/2$.</p>
+<ol>
+<li>For any $a &gt; 0$,<script type="math/tex; mode=display">\mathrm{Pr}(Y \ge \mu + a) \le e^{-2a^2/n}.</script></li>
+<li>For any $\delta &gt; 0$,<script type="math/tex; mode=display">\mathrm{Pr}(Y \ge (1+ \delta)\mu) \le e^{-\delta^2\mu}.</script></li>
+</ol>
+<p><strong>Corollary</strong> <em>Let $Y_1, \cdots, Y_n$ be independent random variables with</em></p>
+<script type="math/tex; mode=display">\mathrm{Pr}(Y_i = 1) = \mathrm{Pr}(Y_i = 0) = \frac{1}{2}.</script><p>Let $Y = \sum^n_{i = 1}Y_i$ and $\mu = E[Y] = n/2$.</p>
+<ol>
+<li>For any $a &gt; 0$,<script type="math/tex; mode=display">\mathrm{Pr}(Y \le \mu - a) \le e^{-2a^2/n}.</script></li>
+<li>For any $\delta &gt; 0$,<script type="math/tex; mode=display">\mathrm{Pr}(Y \ge (1 - \delta)\mu) \le e^{-\delta^2\mu}.</script></li>
+</ol>
+<h3 id="Application-Set-Balancing"><a href="#Application-Set-Balancing" class="headerlink" title="Application: Set Balancing"></a>Application: Set Balancing</h3><p>给定一个矩阵$A (n \times m)$，设</p>
+<p><div style="width:50%;margin:auto"><img src="/2020/07/10/probandcomp-4/setbalancing.png" class></div><br>这里$a_{ij} \in \{0, 1\}$，假定寻找一个$\bar{b}, b_i \in \{-1, 1\}$，极小化$\Vert A\bar{b} \Vert_\infty = max_{i = 1,\cdots,n} |c_i|$ ($c_i$越小说明第i行的1被尽可能的均为分到了-1和1的组里面). 这个问题产生与统计实验设计中，矩阵$A$的每一列表示一个实验对象，每一行表示一个特征。向量$\bar{b}$将实验对象分成两个分离的组，使得每个特征在两组之间尽可能大致上均衡，其中的一组最为另一组上所进行实验的控制组。<br>以$\mathrm{Pr}(b_i = 1) = \mathrm{Pr}(b_i = -1) = 1/2$随机的选取$\bar{b}$就可以得到一个较好的解。</p>
+<p><strong>Theorem</strong> <em>For a random vector $\bar{b}$ with entries chosen independently and with equal parameter from the set $\{-1, 1\}$,</em></p>
+<script type="math/tex; mode=display">\mathrm{Pr}(\Vert A\bar{b} \Vert_\infty \ge \sqrt{4m\ln{n}}) \le \frac{2}{n}.</script><h3 id="Application-Packet-Routing-in-Sparse-Networks"><a href="#Application-Packet-Routing-in-Sparse-Networks" class="headerlink" title="Application: Packet Routing in Sparse Networks"></a>Application: Packet Routing in Sparse Networks</h3><p>给定一个网络拓扑，一个<strong>路由选择算法</strong>为对每对结点指定一条网络中连接这对结点的路由或边序列。算法还指定开关队列中有序数据包的排队策略。对一给定的网络拓扑，衡量路由选择算法性能的标准是传送任意排列的路由选择问题所要求的最大时间——以并行步为度量，其中每个结点恰好传送一个数据包，且每个结点恰好是一个数据包的地址。</p>
+<h4 id="超立方体网络上排列的路由选择"><a href="#超立方体网络上排列的路由选择" class="headerlink" title="超立方体网络上排列的路由选择"></a>超立方体网络上排列的路由选择</h4><p>设$\mathcal{N} = \{0 \le i &lt; N - 1\}, N = 2^n$是并行机中的处理器集合。设$\bar{x}$是$x$的二进制表示。<br>$n$维超立方体是一个有$N = 2^n$个结点的网络，结点$x$有到结点$y$的有向连接，当且仅当$\bar{x}$和$\bar{y}$恰有一个二进制数字(位)上的差别。</p>
+<p><div style="width:50%;margin:auto"><img src="/2020/07/10/probandcomp-4/hypercube.png" class></div><br>超立方体允许一个简单的位固定的路由选择机制，即在确定下一次应通过哪条边时，算法只要简单地一次考虑每个位，如果有必要便通过这条边。</p>
+<p><strong>$n$维立方体固定路由选择算法</strong></p>
+<ol>
+<li>令$\bar{a}$, $\bar{b}$维出发地和目的地</li>
+<li>对$i = 1$ 到 $n$，如果$a_i \ne b_i$，则通过边<script type="math/tex; mode=display">(b_1, \cdots, b_{i - 1}, a_i, \cdots, a_n) \to (b_1, \cdots, b_{i-1}, b_i, a_{i+1}, \cdots, a_n).</script></li>
+</ol>
+<p>和快速排序类似，存在某种输入使得算法达到最坏情况，因此采用类似的处理策略，先将数据包传送到一个随机的中间点，然后从这个中间点传送到最终的目的地。</p>
+<p><strong>两阶段路由选择算法</strong></p>
+<ol>
+<li>用位固定路由选择，将数据包传送至网络中随机选取的一个结点。</li>
+<li>用位固定路由选择，将数据包从它的随机位传送至目的地。</li>
+</ol>
+<p><strong>定理</strong> 给出一个任意排列的路由选择问题，两阶段路由选择算法对所有数据包以$1 - O(N^{-1})$的概率，用$O(n) = O(\log{N})$并行步传送到它们在$n$维立方体伤的目的地。<br>证明：首先，如果一个数据包传送到网络中随机选择的结点$\bar{x}$，那么$\bar{x} = (x_1, \cdots, x_n)$是通过令每个$x_i$独立地以1/2概率为0，以1/2概率为1而生成的。<br><br>给定一个数据包$M$,令$T_1(M)$表示$M$完成第1阶段的步数，对一个给定边$e$，令$X_1(e)$表示在阶段1中经过边$e$传送的数据包总数。关于$T$和$M$有如下引理：<br><br><strong>引理</strong> 设$e_1, \cdots, e_m$是数据包$M$在阶段1经过的$m \le n$条边，那么</p>
+<script type="math/tex; mode=display">T_1(M) \le \sum^m_{i = 1}X_1(e_1).</script>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Daily-Reading/" rel="tag"># Daily Reading</a>
+              <a href="/tags/Probability/" rel="tag"># Probability</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/07/10/sizeof/" rel="prev" title="C++ sizeof 关键字">
+      <i class="fa fa-chevron-left"></i> C++ sizeof 关键字
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/07/16/cppprimer6-5/" rel="next" title="C++ Primer Plus 6.5 switch语句">
+      C++ Primer Plus 6.5 switch语句 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-4-Chernoff-Bounds"><span class="nav-number">1.</span> <span class="nav-text">Chapter 4 Chernoff Bounds</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Moment-Generating-Functions-矩母函数"><span class="nav-number">1.1.</span> <span class="nav-text">Moment Generating Functions (矩母函数)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deriving-Chernoff-Bounds"><span class="nav-number">1.2.</span> <span class="nav-text">Deriving Chernoff Bounds</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Chernoff-Bounds-for-the-Sum-of-Possion-Trials-most-commonly-used-version"><span class="nav-number">1.2.1.</span> <span class="nav-text">Chernoff Bounds for the Sum of Possion Trials (most commonly used version)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Application-Estimating-a-Parameter"><span class="nav-number">1.2.2.</span> <span class="nav-text">Application: Estimating a Parameter</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Better-Bounds-for-Special-Cases"><span class="nav-number">1.3.</span> <span class="nav-text">Better Bounds for Special Cases</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Application-Set-Balancing"><span class="nav-number">1.4.</span> <span class="nav-text">Application: Set Balancing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Application-Packet-Routing-in-Sparse-Networks"><span class="nav-number">1.5.</span> <span class="nav-text">Application: Packet Routing in Sparse Networks</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#超立方体网络上排列的路由选择"><span class="nav-number">1.5.1.</span> <span class="nav-text">超立方体网络上排列的路由选择</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Xiangyu Gao"
+      src="/images/header.jpg">
+  <p class="site-author-name" itemprop="name">Xiangyu Gao</p>
+  <div class="site-description" itemprop="description">我秃了，但是也变强了。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/gaoxy914" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;gaoxy914" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:gaoxy@hit.edu.cn" title="E-Mail → mailto:gaoxy@hit.edu.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiangyu Gao</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+    
+
+  
+
+</body>
+</html>
