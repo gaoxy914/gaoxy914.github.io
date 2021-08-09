@@ -176,7 +176,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-08-09 10:04:04" itemprop="dateModified" datetime="2021-08-09T10:04:04+08:00">2021-08-09</time>
+                <time title="Modified: 2021-08-09 10:45:52" itemprop="dateModified" datetime="2021-08-09T10:45:52+08:00">2021-08-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -200,8 +200,14 @@
 
       
           <p>解决Linux中文件删除之后，空间没有被释放的问题。</p>
-<p>在Linux系统中，通过rm或者文件管理器删除文件将会从文件系统的目录结构上解除链接(unlink)。<br>然而，如果文件是被打开的，或者有一个进程正在使用文件，那么进程将仍然可以读取该文件，磁盘空间也将一直被占用。<br>该文件状态为deleted，即被删除状态，但是并没有将其从磁盘中删除，类似于Windows下的回收站状态。<br>若要将deleted状态的文件删除，可以根据Isof列出的进程号，杀死这些进程，空间就会被释放出来。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Isof |grep delete</span><br></pre></td></tr></table></figure></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/08/23/linux-grep-delete/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -245,7 +251,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-08-09 10:04:29 / Modified: 10:06:41" itemprop="dateCreated datePublished" datetime="2021-08-09T10:04:29+08:00">2021-08-09</time>
+              <time title="Created: 2021-08-09 10:04:29 / Modified: 10:46:11" itemprop="dateCreated datePublished" datetime="2021-08-09T10:04:29+08:00">2021-08-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -270,11 +276,14 @@
       
           <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in"><span class="keyword">switch</span></span> (integer expression)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">case</span> label1 : <span class="built_in">statement</span>(s)</span><br><span class="line">    <span class="keyword">case</span> label2 : <span class="built_in">statement</span>(s)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">default</span>     : <span class="built_in">statement</span>(s)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>其中integer-expression必须为结果为整数值的表达式（如int, char，或者enum枚举量）。switch中的case标签只是行标签，而不是选项之间的界限，如果没有明确的break语句，程序将以此执行之后的所有语句。</p>
-<h4 id="switch的case中定义变量"><a href="#switch的case中定义变量" class="headerlink" title="switch的case中定义变量"></a>switch的case中定义变量</h4><blockquote>
-<p>如果在某一处一个带有初始值的变量位于作用域之外，在另一处该变量位于作用域之内，则从前一处跳转到后一处的行为是非法的行为。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in"><span class="keyword">switch</span></span> (color)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">case</span> RED:</span><br><span class="line">        string std; <span class="comment">// error</span></span><br><span class="line">        <span class="keyword">int</span> val1 = <span class="number">0</span>; <span class="comment">// error</span></span><br><span class="line">        <span class="keyword">int</span> val2; <span class="comment">// right</span></span><br><span class="line">        <span class="keyword">int</span> val3; val3 = <span class="number">0</span>; <span class="comment">// right</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> BLUE:</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> val4 = <span class="number">0</span>; <span class="comment">// right</span></span><br><span class="line">            cout &lt;&lt; val4 &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> GREEN:</span><br><span class="line">        val2 = <span class="number">0</span>;</span><br><span class="line">        cout &lt;&lt; val2 &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>因为case语句不构成独立的作用域，所以val1, val2都在声明时对标量进行了初始化，如果该代码不允许被跳过，故编译器报错。可以想case BLUE中在case中加入”{}”，将局部变量定义在代码块中。</p>
-</blockquote>
-<h4 id="switch和if"><a href="#switch和if" class="headerlink" title="switch和if"></a>switch和if</h4><p>从某种程度上来说，switch/case比if/else效率要高，除非if/else在第一次逻辑判断就为true，当时switch/case需要建立一张跳转表，因此需要一定的空间开销。再有if/else可以进行逻辑判断，但是switch/case就不可以。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/08/09/switch/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -324,7 +333,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-08-09 10:02:29" itemprop="dateModified" datetime="2021-08-09T10:02:29+08:00">2021-08-09</time>
+                <time title="Modified: 2021-08-09 10:45:43" itemprop="dateModified" datetime="2021-08-09T10:45:43+08:00">2021-08-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -348,12 +357,14 @@
 
       
           <p><a target="_blank" rel="noopener" href="http://snap.stanford.edu/data/">Stanford Large Network Dataset Collection</a><br><a target="_blank" rel="noopener" href="http://law.di.unimi.it/datasets.php">Laboratory for Web Algorithmics</a></p>
-<p>Install WebGraph<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://search.maven.org/remotecontent?filepath=it/unimi/dsi/webgraph/3.6.5/webgraph-3.6.5.jar</span><br><span class="line">wget http://webgraph.di.unimi.it/webgraph-deps.tar.gz</span><br><span class="line">tar -xzvf webgraph-deps.tar.gz</span><br></pre></td></tr></table></figure></p>
-<p>move them to /web_graph/lib/<br>test<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -cp <span class="string">&quot;lib/*&quot;</span> it.unimi.dsi.webgraph.ArcListASCIIGraph --<span class="built_in">help</span></span><br></pre></td></tr></table></figure></p>
-<p>Download Dataset<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://data.law.di.unimi.it/webdata/cnr-2000/cnr-2000.graph</span><br><span class="line">wget http://data.law.di.unimi.it/webdata/cnr-2000/cnr-2000.properties</span><br></pre></td></tr></table></figure></p>
-<p>Transform to Adjacent List<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -cp <span class="string">&quot;lib/*&quot;</span> it.unimi.dsi.webgraph.ASCIIGraph cnr-2000 cnr-2000</span><br></pre></td></tr></table></figure></p>
-<p>Transform to Edge List<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -cp <span class="string">&quot;lib/*&quot;</span> it.unimi.dsi.webgraph.ArcListASCIIGraph cnr-2000 cnr-2000-edgelist.txt</span><br></pre></td></tr></table></figure></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/08/20/graphdataset/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -403,7 +414,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-08-09 09:58:01" itemprop="dateModified" datetime="2021-08-09T09:58:01+08:00">2021-08-09</time>
+                <time title="Modified: 2021-08-09 10:46:03" itemprop="dateModified" datetime="2021-08-09T10:46:03+08:00">2021-08-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -431,28 +442,14 @@
 <blockquote>
 <p>The sizeof keyword gives the amount of storage, in bytes, associated with a variable or a type (including aggregate types). This keyword returns a value of tyoe size_t.</p>
 </blockquote>
-<h4 id="sizeof-stirng-是多少？"><a href="#sizeof-stirng-是多少？" class="headerlink" title="sizeof(stirng) 是多少？"></a>sizeof(stirng) 是多少？</h4><p>string的实现在各个库中有所不同，但是在同一库中，无论string中字符串有多长，它的sizeof()是固定的，字符串所占的空间是从堆中动态分配的，与sizeof()无关，这个值只和编译器相关。</p>
-<h4 id="C-的栈空间和堆空间"><a href="#C-的栈空间和堆空间" class="headerlink" title="C++的栈空间和堆空间"></a>C++的栈空间和堆空间</h4><ol>
-<li>栈区(stack) : 由编译器自动分配释放，存放函数的参数值，局部变量的值等，其操作方式类似于数据结构的栈。</li>
-<li>堆区(heap) : 一般是由程序员分配释放，若程序员不释放的话，程序结束时可能由OS回收，值得注意的是它与数据结构的堆时两回事，分配方式类似于数据结构的链表。</li>
-<li>全局区(static) : 也叫静态数据内存空间，存储全局变量和静态变量，全局变量和静态变量的存储是在一起的，初始化的全局变量和静态变量放在一块区域，没有初始化的在相邻的另一块区域，程序结束后由系统释放。</li>
-<li>文字常量区 : 常量字符串存放的区域，程序结束后由系统释放。</li>
-<li>程序代码区 : 存放函数提的二进制代码。<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//main.cpp</span></span><br><span class="line"><span class="keyword">int</span> a = <span class="number">0</span>;      <span class="comment">//全局初始化区</span></span><br><span class="line"><span class="keyword">char</span> *p1;       <span class="comment">//全局未初始化区</span></span><br><span class="line"><span class="built_in">main</span>() &#123;</span><br><span class="line"><span class="keyword">int</span> b;              <span class="comment">//栈</span></span><br><span class="line"><span class="keyword">char</span> s[] = <span class="string">&quot;abc&quot;</span>;   <span class="comment">//栈</span></span><br><span class="line"><span class="keyword">char</span> *p2;           <span class="comment">//栈</span></span><br><span class="line"><span class="keyword">char</span> *p3 = <span class="string">&quot;123456&quot;</span>;    <span class="comment">//123456\0在常量区，p3在栈上。</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> c =<span class="number">0</span>;        <span class="comment">//全局（静态）初始化区</span></span><br><span class="line">p1 = (<span class="keyword">char</span> *)<span class="built_in">malloc</span>(<span class="number">10</span>);</span><br><span class="line">p2 = (<span class="keyword">char</span> *)<span class="built_in">malloc</span>(<span class="number">20</span>);</span><br><span class="line"><span class="comment">//分配得来得10和20字节的区域就在堆区。</span></span><br><span class="line"><span class="built_in">strcpy</span>(p1, <span class="string">&quot;123456&quot;</span>);  <span class="comment">//123456\0放在常量区，编译器可能会将它与p1所指向的&quot;123456&quot;优化成一个地方。 </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h4 id="堆和栈的区别"><a href="#堆和栈的区别" class="headerlink" title="堆和栈的区别"></a>堆和栈的区别</h4><p>堆和栈的区别</p>
-<ul>
-<li>内存分配方式不同</li>
-<li>申请和响应不同：<ol>
-<li>申请方式：<br>栈：由系统自动分配。<br>堆：需要程序员自己申请(new delete)。</li>
-<li>申请后系统的响应：<br>栈：只要栈的剩余空间大于所申请的空间，系统将为程序提供内存，否则将报一场提示栈溢出。<br>堆：首先应该知道操作系统有一个记录内存地址的链表，当系统收到程序的申请时，会遍历该链表，寻找第一个空间大于所申请的空间的堆结点，然后将该结点从空闲结点链表中删除，并将该结点的空间分配给程序。另外，对于大多数系统，会在这块内存空间中的首地址处记录本次分配的大小，这样代码中的delete或free语句就能够正确释放本内存空间。另外，由于找到的堆结点的大小不一定正好等于申请的大小，系统会将多余的那部分重新放入空闲链表中。</li>
-<li>申请的大小限制不同：<br>栈：在Windows吓，栈是向低地址扩展的数据结构，是一块连续的内存区域，栈顶的地址和栈的最大容量是系统预先规定好的，能从栈获得的空间较小。<br>堆：堆是向高地址扩展的数据结构，是不连续的内存区域，这是由于系统由链表在存储空闲内存地址，自然堆就是不连续的内存区域，且链表的遍历也是从低地址向高地址遍历的，堆的大小受限于计算机系统的有效虚拟内存空间，由此空间，堆获得的空间比较灵活，也比较大。</li>
-<li>申请的效率不同：<br>栈：栈由系统自动分配，速度快，但是程序员无法控制。<br>堆：堆是由程序员自己分配，速度较慢，容易产生碎片，不过使用方便。</li>
-<li>对合栈的存储内容不同：<br>栈：在函数调用时，第一个进栈的是主函数中函数调用后的下一条指令的地址，然后是函数的各个参数，在大多数的C编译器中，参数是从右往左入栈的，当本次函数调用结束后，局部变量先出栈，然后是参数，最后是栈顶指针指向最开始存的地址，也就是主函数的下一条指令。<br>堆：一般是在堆的头部用一个字节存放堆的大小，具体内容由程序员安排。</li>
-</ol>
-</li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/07/10/sizeof/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -502,7 +499,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-08-09 09:44:29" itemprop="dateModified" datetime="2021-08-09T09:44:29+08:00">2021-08-09</time>
+                <time title="Modified: 2021-08-09 10:46:23" itemprop="dateModified" datetime="2021-08-09T10:46:23+08:00">2021-08-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -526,23 +523,14 @@
 
       
           <p>Trie is an efficient information reTrieval data structre (especially for string), which supports serach, insert and delete operations. Maximum number of children of a node is equal to size of alphabet. Using Trie, search complexities can be brought to optimal limit (key length).<br><img src="/.com//trie.png" alt="trie"></p>
-<h4 id="Advanteges"><a href="#Advanteges" class="headerlink" title="Advanteges:"></a>Advanteges:</h4><ol>
-<li>Insert and find string with lower time complexity $O(L)$, where $L$ is the length of a single word.</li>
-<li>Efficiently do prefix search.<h4 id="Issues"><a href="#Issues" class="headerlink" title="Issues:"></a>Issues:</h4></li>
-<li>A lot of memory requirement for storing the strings.</li>
-</ol>
-<p>The final conclusion regarding tries data structure is that they are fast but require huge memory for storing the strings.</p>
-<h4 id="Trie-Node"><a href="#Trie-Node" class="headerlink" title="Trie Node"></a>Trie Node</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Trie Node</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">TrieNode</span> &#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">TrieNode</span>* <span class="title">children</span>[<span class="title">ALPHABET_SIZE</span>];</span></span><br><span class="line">    <span class="comment">// isEndOfWord is true iff the node represents end of a word</span></span><br><span class="line">    <span class="keyword">bool</span> isEndOfWord;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="Insertion"><a href="#Insertion" class="headerlink" title="Insertion"></a>Insertion</h4><p>Inserting a key into Trie is a simple approach. Every character of the input key is inserted as an individual Trie node.<br>If the input key is new or an extension of the existing key, we need to construct non-existing nodes of the key, and mark end of the word for the last node.<br>If the input key is a prefix of the existing key in the Trie, we simply mark the last node of the key as the end of a word.<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// If not present, inserts key into trie</span></span><br><span class="line"><span class="comment">// If the key is prefix of trie node, just</span></span><br><span class="line"><span class="comment">// marks leaf node</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(struct TrieNode* root, string key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">TrieNode</span>* <span class="title">pCrawl</span> =</span> root;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; key.<span class="built_in">length</span>(); i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> index = key[i] - <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">        <span class="keyword">if</span> (!pCrawl-&gt;children[index])</span><br><span class="line">            pCrawl-&gt;children[index] = <span class="built_in">getNode</span>();</span><br><span class="line"></span><br><span class="line">        pCrawl = pCrawl-&gt;children[index];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// mark last node as leaf</span></span><br><span class="line">    pCrawl-&gt;isEndOfWord = <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="Search"><a href="#Search" class="headerlink" title="Search"></a>Search</h4><p>The search is similar to insert operation. The serach can terminate due to the end of a string of lack of key in the trie.<br>In the former case. if the isEndOfWord field of the last node is true, then the key exists in the Trie.<br>In the second case, if the search terminates without examining all the characters of the key, since the key is not present in the Trie.<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Returns true if key presents in trie, else</span></span><br><span class="line"><span class="comment">// false</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">search</span><span class="params">(struct TrieNode* root, string key)</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">TrieNode</span>* <span class="title">pCrawl</span> =</span> root;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; key.<span class="built_in">length</span>(); i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> index = key[i] - <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">        <span class="keyword">if</span> (!pCrawl-&gt;children[index])</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">        pCrawl = pCrawl-&gt;children[index];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (pCrawl != <span class="literal">NULL</span> &amp;&amp; pCrawl-&gt;isEndOfWord);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="Deletion"><a href="#Deletion" class="headerlink" title="Deletion"></a>Deletion</h4><p>The possible conditions:</p>
-<ol>
-<li>Key may not be there in Trie.</li>
-<li>Key present as unique key. Delete all the nodes.</li>
-<li>Key is a prefix key of another long key in Trie. Unmark the leaf node.</li>
-<li>Key has at least one othe key as prefix key. Delete nodes from end of key until first leaf node of the longest prefix key.<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Returns true if root has no children, else false</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isEmpty</span><span class="params">(TrieNode* root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ALPHABET_SIZE; i++)</span><br><span class="line">        <span class="keyword">if</span> (root-&gt;children[i])</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Recursive function to delete a key from given Trie</span></span><br><span class="line"><span class="function">TrieNode* <span class="title">remove</span><span class="params">(TrieNode* root, string key, <span class="keyword">int</span> depth = <span class="number">0</span>)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// If tree is empty</span></span><br><span class="line">    <span class="keyword">if</span> (!root)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="comment">// If last character of key is being processed</span></span><br><span class="line">    <span class="keyword">if</span> (depth == key.<span class="built_in">size</span>()) &#123;</span><br><span class="line">        <span class="comment">// This node is no more end of word after</span></span><br><span class="line">        <span class="comment">// removal of given key</span></span><br><span class="line">        <span class="keyword">if</span> (root-&gt;isEndOfWord)</span><br><span class="line">            root-&gt;isEndOfWord = <span class="literal">false</span>;</span><br><span class="line">        <span class="comment">// If given is not prefix of any other word</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">isEmpty</span>(root)) &#123;</span><br><span class="line">            <span class="built_in"><span class="keyword">delete</span></span> (root);</span><br><span class="line">            root = <span class="literal">NULL</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// If not last character, recur for the child</span></span><br><span class="line">    <span class="comment">// obtained using ASCII value</span></span><br><span class="line">    <span class="keyword">int</span> index = key[depth] - <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">    root-&gt;children[index] =</span><br><span class="line">          <span class="built_in">remove</span>(root-&gt;children[index], key, depth + <span class="number">1</span>);</span><br><span class="line">    <span class="comment">// If root does not have any child (its only child got</span></span><br><span class="line">    <span class="comment">// deleted), and it is not end of another word.</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">isEmpty</span>(root) &amp;&amp; root-&gt;isEndOfWord == <span class="literal">false</span>) &#123;</span><br><span class="line">        <span class="built_in"><span class="keyword">delete</span></span> (root);</span><br><span class="line">        root = <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/07/09/Trie/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -592,7 +580,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-08-09 09:34:44" itemprop="dateModified" datetime="2021-08-09T09:34:44+08:00">2021-08-09</time>
+                <time title="Modified: 2021-08-09 10:46:17" itemprop="dateModified" datetime="2021-08-09T10:46:17+08:00">2021-08-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -616,12 +604,14 @@
 
       
           <h4 id="Data-Structure"><a href="#Data-Structure" class="headerlink" title="Data Structure"></a>Data Structure</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Definition for a binary tree node</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">TreeNode</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    TreeNode* left;</span><br><span class="line">    TreeNode* right;</span><br><span class="line">    <span class="built_in">TreeNode</span>(<span class="keyword">int</span> x) : <span class="built_in">val</span>(x), <span class="built_in">left</span>(<span class="literal">NULL</span>), <span class="built_in">right</span>(<span class="literal">NULL</span>) &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>In-order Traversal (left, root, right)<br><img src="/.com//inorder.png" alt="inorder"><br>The output of in-order traversal of this tree is D, B, E, A, F, C, G.<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inordertraversal</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="literal">NULL</span>) <span class="keyword">return</span>;</span><br><span class="line">    TreeNode* p = root;</span><br><span class="line">    stack&lt;TreeNode*&gt; s;</span><br><span class="line">    <span class="keyword">while</span> (!s.empty || p) &#123;</span><br><span class="line">        <span class="keyword">while</span> (p) &#123;</span><br><span class="line">            s.<span class="built_in">push</span>(p);</span><br><span class="line">            p = p-&gt;left;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!s.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            p = s.<span class="built_in">top</span>();</span><br><span class="line">            s.<span class="built_in">pop</span>();</span><br><span class="line">            cout &lt;&lt; p-&gt;val &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">            p = p-&gt;rchild;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>Pre-order Traversal (root, left, right)<br><img src="/.com//preorder.png" alt="preorder"><br>The output of pre-order traversal of this tree is A, B, D, E, C, F, G.<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">preordertraversal</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="literal">NULL</span>) <span class="keyword">return</span>;</span><br><span class="line">    TreeNode* p = root;</span><br><span class="line">    stack&lt;TreeNode*&gt; s;</span><br><span class="line">    <span class="keyword">while</span> (!s.empty || p) &#123;</span><br><span class="line">        <span class="keyword">while</span> (p) &#123;</span><br><span class="line">            cout &lt;&lt; p-&gt;val &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">            s.<span class="built_in">push</span>(p);</span><br><span class="line">            p = p-&gt;left;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!s.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            p = s.<span class="built_in">top</span>();</span><br><span class="line">            s.<span class="built_in">pop</span>();</span><br><span class="line">            p = p-&gt;right;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>Post-order Traversal (left, right, root)<br><img src="/.com//postorder.png" alt="postorder"><br>The output of post-order traversal of this tree is D, E, B, F, G, C, A.<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postordertraversal</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="literal">NULL</span>) <span class="keyword">return</span>;</span><br><span class="line">    starck&lt;TreeNode*&gt; s;</span><br><span class="line">    TreeNode* p = root;</span><br><span class="line">    TreeNode* plast = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">while</span> (!s.<span class="built_in">empty</span>() || p) &#123;</span><br><span class="line">        <span class="keyword">while</span> (p) &#123;</span><br><span class="line">            s.<span class="built_in">push</span>(p);</span><br><span class="line">            p = p-&gt;left;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!s.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            p = s.<span class="built_in">top</span>();</span><br><span class="line">            <span class="keyword">if</span> (p-&gt;right &amp;&amp; p-&gt;right != plast) &#123;</span><br><span class="line">                p = p-&gt;right;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                s.<span class="built_in">pop</span>();</span><br><span class="line">                cout &lt;&lt; p-&gt;val &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">                plast = p;</span><br><span class="line">                p = <span class="literal">NULL</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/07/07/TNT/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -671,7 +661,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-08-09 09:19:26" itemprop="dateModified" datetime="2021-08-09T09:19:26+08:00">2021-08-09</time>
+                <time title="Modified: 2021-08-09 10:45:48" itemprop="dateModified" datetime="2021-08-09T10:45:48+08:00">2021-08-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -695,13 +685,14 @@
 
       
           <p>To mathc string in linear time.<br><img src="/.com//stringmatching.png" alt="stringmatching"></p>
-<h3 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h3><p>The main idea is to utilize the previous successful matching information to skip the impossible string comparison and construct the next array.<br><img src="/.com//mainidea.png" alt="mainidea"><br><strong>Definition</strong>[array next of pattern string P]<br>next[i] means that in substring P[0:i], the largest k such that the first k characters equal to the last k characters, and k can not take i + 1.</p>
-<h4 id="Caculate-array-next"><a href="#Caculate-array-next" class="headerlink" title="Caculate array next"></a>Caculate array next</h4><p>If next[0], next[1], …, next[x - 1] are known, how to calculate next[x] efficiently?<br>Let next[x - ] = now,</p>
-<ul>
-<li>If P[x] = P[now], then next[x] = now + 1;<br><img src="/.com//case1.png" alt="case1"></li>
-<li>If P[x] != P[now], then set now as the largest k such that k-prefix of A which equals to the k-suffix of B, where k can not take now;<br><img src="/.com//case2.png" alt="case2"></li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">KMP</span><span class="params">(string s, string p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>* next = <span class="keyword">new</span> <span class="keyword">int</span>[p.<span class="built_in">length</span>()];</span><br><span class="line">    next[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">1</span>, now = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt; p.<span class="built_in">length</span>()) &#123;</span><br><span class="line">        <span class="keyword">if</span> (p[now] == p[i]) next[i ++] = ++ now;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (now == <span class="number">0</span>) next[i ++] = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">else</span> now = next[now - <span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    i = <span class="number">0</span>; <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt; s.<span class="built_in">length</span>() &amp;&amp; j &lt; p.<span class="built_in">length</span>()) &#123;</span><br><span class="line">        <span class="keyword">if</span> (s[i] == p[j]) &#123; ++ i; ++ j; &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123; j = j == <span class="number">0</span> ? <span class="number">0</span> : next[j - <span class="number">1</span>]; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">delete</span>[] next;</span><br><span class="line">    <span class="keyword">if</span> (j == p.<span class="built_in">length</span>()) <span class="keyword">return</span> i - j;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/07/01/KMP/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -751,7 +742,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-08-09 10:13:25" itemprop="dateModified" datetime="2021-08-09T10:13:25+08:00">2021-08-09</time>
+                <time title="Modified: 2021-08-09 10:45:56" itemprop="dateModified" datetime="2021-08-09T10:45:56+08:00">2021-08-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -775,22 +766,14 @@
 
       
           <p>To calculate the longest palindrome substring.</p>
-<h3 id="Algorihtm"><a href="#Algorihtm" class="headerlink" title="Algorihtm"></a>Algorihtm</h3><ul>
-<li>preprocessing<br>insert ‘#’ between adjacent characters in the string, e.g., babad $\rightarrow$ #b#a#b#a#d#.<br><strong>remark</strong>: after preprocessing, the length of the string after and the length of the palindrome substring is odd.</li>
-<li>array P<br>P[i]: The maximum extension length of the palindrome substring centered on the i-th character.<br>For example: abbabb<br><img src="/.com//abbabb.png" alt="abbabb"></li>
-<li>calculate P with previous information.<br>maxRight: the rightmost boundray.<script type="math/tex; mode=display">{\rm maxRight} = \max\{x + {\rm P}[x]\mid 0\le x < i\}.</script>center: the center correpsonds to maxRight.<script type="math/tex; mode=display">{\rm center} = \arg\max\{x + {\rm P}[x] \mid 0 \le x < i\}.</script><ul>
-<li>case 1: $i \ge {\rm maxRight}$<br>extend at the i-th character to enlarge maxRight.</li>
-<li>case 2: $i &lt; {\rm maxRight}$<br>find mirror which is symmetric with $i$ about center, i.e., ${\rm mirror} + i = 2\times {\rm center}$.<ul>
-<li>${\rm P}[{\rm mirror}] &lt; {\rm maxRight} - i$, which means that ${\rm P}[i] = {\rm P}[{\rm mirror}]$.<br><img src="/.com//manacher1.jpg" alt="manacher1"></li>
-<li>${\rm P}[{\rm mirror}] = {\rm maxRight} - i$, which means that ${]rm P}[i]$ is at least ${\rm maxRight} - i$ and may be extended.<br><img src="/.com//manacher2.jpg" alt="manacher2"></li>
-<li>${\rm P}[{\rm mirror}] &lt; {\rm maxRight} - i$, which means ${\rm P}[i] = {\rm maxRight} - i$ and can not be extended.<br><img src="/.com//manacher3.jpg" alt="manacher3"></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>In summary, ${\rm P}[i] = \min\{ {\rm maxRight} - i, {\rm P}[{\rm mirror}] \}$.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">string <span class="title">manacher</span><span class="params">(string str)</span> </span>&#123;</span><br><span class="line">    string str_trans = <span class="string">&quot;#&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">char</span> c : str) &#123;</span><br><span class="line">        str_trans += c;</span><br><span class="line">        str_trans += <span class="string">&#x27;#&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> n  = str_trans.<span class="built_in">length</span>();</span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">p</span><span class="params">(n, <span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="keyword">int</span> maxRight = <span class="number">0</span>, center = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> maxLen = <span class="number">1</span>, start = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++ i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i &lt; maxRight) &#123;</span><br><span class="line">            <span class="keyword">int</span> mirror = <span class="number">2</span>*center - i;</span><br><span class="line">            p[i] = <span class="built_in">min</span>(maxRight - i, p[mirror]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> left = i - (<span class="number">1</span> + p[i]), right = i + (<span class="number">1</span> + p[i]);</span><br><span class="line">        <span class="keyword">while</span> (left &gt;= <span class="number">0</span> &amp;&amp; right &lt;= n &amp;&amp; str_trans[left] == str_trans[right]) &#123;</span><br><span class="line">            p[i] ++;</span><br><span class="line">            left --;</span><br><span class="line">            right ++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (i + p[i] &gt; maxRight) &#123;</span><br><span class="line">            maxRight = i + p[i];</span><br><span class="line">            center = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (p[i] &gt; maxLen) &#123;</span><br><span class="line">            maxLen = p[i];</span><br><span class="line">            start = (i - maxLen)/<span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> str.<span class="built_in">substr</span>(start, maxLen);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/06/08/Manacher/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

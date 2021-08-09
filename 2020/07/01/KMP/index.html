@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="To mathc string in linear time. AlgorithmThe main idea is to utilize the previous successful matching information to skip the impossible string comparison and construct the next array.Definition[array">
+  <meta name="description" content="To mathc string in linear time.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="KMP">
 <meta property="og:url" content="http://example.com/2020/07/01/KMP/index.html">
 <meta property="og:site_name" content="Kepp Working">
-<meta property="og:description" content="To mathc string in linear time. AlgorithmThe main idea is to utilize the previous successful matching information to skip the impossible string comparison and construct the next array.Definition[array">
+<meta property="og:description" content="To mathc string in linear time.">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/.com//stringmatching.png">
 <meta property="og:image" content="http://example.com/.com//mainidea.png">
 <meta property="og:image" content="http://example.com/.com//case1.png">
 <meta property="og:image" content="http://example.com/.com//case2.png">
 <meta property="article:published_time" content="2020-07-01T00:53:17.000Z">
-<meta property="article:modified_time" content="2021-08-09T01:19:26.271Z">
+<meta property="article:modified_time" content="2021-08-09T02:45:48.886Z">
 <meta property="article:author" content="Xiangyu Gao">
 <meta property="article:tag" content="Algorithm">
 <meta name="twitter:card" content="summary">
@@ -186,7 +186,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-08-09 09:19:26" itemprop="dateModified" datetime="2021-08-09T09:19:26+08:00">2021-08-09</time>
+                <time title="Modified: 2021-08-09 10:45:48" itemprop="dateModified" datetime="2021-08-09T10:45:48+08:00">2021-08-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -210,6 +210,7 @@
 
       
         <p>To mathc string in linear time.<br><img src="/.com//stringmatching.png" alt="stringmatching"></p>
+<span id="more"></span>
 <h3 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h3><p>The main idea is to utilize the previous successful matching information to skip the impossible string comparison and construct the next array.<br><img src="/.com//mainidea.png" alt="mainidea"><br><strong>Definition</strong>[array next of pattern string P]<br>next[i] means that in substring P[0:i], the largest k such that the first k characters equal to the last k characters, and k can not take i + 1.</p>
 <h4 id="Caculate-array-next"><a href="#Caculate-array-next" class="headerlink" title="Caculate array next"></a>Caculate array next</h4><p>If next[0], next[1], …, next[x - 1] are known, how to calculate next[x] efficiently?<br>Let next[x - ] = now,</p>
 <ul>
