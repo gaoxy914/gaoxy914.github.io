@@ -20,15 +20,20 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Kepp Working">
-<meta property="og:url" content="http://example.com/categories/Data-Strucutre/index.html">
+  <meta name="description" content="A polynomial time Monte-Carlo algorithm which produce a good approximation solution to an enumeration problem for which it is known that the computation of the exact solution is very hard.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Luby-Karp Algorithm">
+<meta property="og:url" content="http://example.com/2021/08/09/lkalgorithm/index.html">
 <meta property="og:site_name" content="Kepp Working">
+<meta property="og:description" content="A polynomial time Monte-Carlo algorithm which produce a good approximation solution to an enumeration problem for which it is known that the computation of the exact solution is very hard.">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-08-09T11:15:50.000Z">
+<meta property="article:modified_time" content="2021-08-09T11:44:01.741Z">
 <meta property="article:author" content="Xiangyu Gao">
+<meta property="article:tag" content="Algorithm">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/categories/Data-Strucutre/">
+<link rel="canonical" href="http://example.com/2021/08/09/lkalgorithm/">
 
 
 <script id="page-configurations">
@@ -36,12 +41,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Category: Data Strucutre | Kepp Working</title>
+  <title>Luby-Karp Algorithm | Kepp Working</title>
   
 
 
@@ -154,51 +159,121 @@
         <div class="content-wrap">
           
 
-          <div class="content category">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">Data Strucutre
-          <small>Category</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/09/lkalgorithm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/cat.jpg">
+      <meta itemprop="name" content="Xiangyu Gao">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kepp Working">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Luby-Karp Algorithm
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-08-09 19:15:50 / Modified: 19:44:01" itemprop="dateCreated datePublished" datetime="2021-08-09T19:15:50+08:00">2021-08-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorihtm/" itemprop="url" rel="index"><span itemprop="name">Algorihtm</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+        <p>A polynomial time Monte-Carlo algorithm which produce a good approximation solution to an enumeration problem for which it is known that the computation of the exact solution is very hard.</p>
+<span id="more"></span>
+<h4 id="DNF-coungting-P-complete"><a href="#DNF-coungting-P-complete" class="headerlink" title="DNF coungting (#P-complete)"></a>DNF coungting (#P-complete)</h4><p>GOAL: to count the number of truth assignments which satisfy the disjunctive normal form.<br>A $\varepsilon, \delta$-approximation algorithm satitifies that</p>
+<script type="math/tex; mode=display">{\rm Pr}[(1 - \varepsilon)\#F \le \tilde{Y} \le (1 + \varepsilon)\#F] \ge 1 - \delta.</script><p>We have a finite set $U$ and a function $f$ defined on $U$ such that $f(u) = 1$ if and only if $u$ is one of the truth assignments.<br>Our goal is to estimate $|G|$, where $G = \{u \mid f(u) = 1, u \in U\}$.</p>
+<ul>
+<li>A simple method<br>choose $u \in U$ randomly, compute $f(u)$, and set $Y \gets |U|\times f(u)$, return $\tilde{Y} = \sum^N_{i = 1}Y_i/N$.<br>$E[Y] = |G|$, and $E[\tilde{Y}] = |G|$. Then, we need to bound $N$.</li>
+</ul>
+<p><strong>Zero-One Estimator Theorm</strong> Let $\mu = |G|/|U|$. Let $\varepsilon \le 2$. If $N \ge (1/\mu)\cdot(4\ln{(2/\delta)}/\varepsilon^2)$ then the algorithm is an $\varepsilon, \delta$-approximation algorithm.</p>
+<p>  However, $|U|/|G|$ can not be bound in the above procedure.</p>
+<ul>
+<li><p>Luby-Karp Algorithm<br>A general set problem: given $m$ sets $G1, \cdots, G_m$, the goal is to compute $|G|$, where $G = \bigcup_{i = 1}^m G_i$. Let $U = G_1\oplus\cdots\oplus G_m $, i.e., each element in $U$ is represented by $(s, i)$, where $s \in G_i$. $|U| = \sum^m_{i = 1}|G_i|$. Define $f(s, i) = 1$ if $i$ is the smallest index such that $s \in G_i$. Note that $|G| = \sum_{(s, i) \in U}f(s, i)$.<br>The algorithm runs as follows:</p>
+<ol>
+<li>choose $i \in \{1, \cdots, m\}$ with probability $|G_i|/|U|$.</li>
+<li>choose $s \in G_i$ with probability $1/|G_i|$.</li>
+<li>compute $Y \gets f(s, i)\cdot |U|$.</li>
+</ol>
+<p>$E[Y] = |G|$, and $E[\tilde{Y}] = |G|$. <strong>The most important thing is that $m \ge 1/\mu = |U|/|G|$.</strong> Thus, $N$ is bounded by $O(m\cdot\ln{(2/\delta)}/\varepsilon^2)$.</p>
+</li>
+</ul>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-07-09T09:35:47+08:00"
-              content="2020-07-09">
-          07-09
-        </time>
-      </div>
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------The End<i class="fa fa-paw"></i>Thanks for reading.-------------</div>
+    
+</div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/07/09/Trie/" itemprop="url">
-            <span itemprop="name">Trie</span>
-          </a>
-      </div>
+      
+    </div>
 
-    </header>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/08/09/switch/" rel="prev" title="switch in C++">
+      <i class="fa fa-chevron-left"></i> switch in C++
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/08/23/linux-grep-delete/" rel="next" title="Linux删除文件后空间没有被释放的问题">
+      Linux删除文件后空间没有被释放的问题 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
   </article>
-
-    </div>
-  </div>
   
   
-  
-
   
 
 
@@ -251,6 +326,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#DNF-coungting-P-complete"><span class="nav-number">1.</span> <span class="nav-text">DNF coungting (#P-complete)</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -361,6 +437,59 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
